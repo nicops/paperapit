@@ -170,18 +170,29 @@ so this is not always done.
 %más atómicos y lógicos ya que el commit se hace en el repositorio propio, 
 %entonces no hay preocupaciones como romper el build.
 
-\subsection{Branching and Merging}
+\subsection{Tagging and Branching}
 
-En un sistema distribuido, tener muchísimos branches es sencillo, de hecho 
-es más que sencillo, es "natural". Lo que permite un sistema distribuido es 
-no solo tener branches baratos sino también simplificar los merges. 
+%En un sistema distribuido, tener muchísimos branches es sencillo, de hecho 
+%es más que sencillo, es "natural". Lo que permite un sistema distribuido es 
+%no solo tener branches baratos sino también simplificar los merges. 
+
+Centralized VCS's like Subversion makes certain copies through history called tags. But on Git we have more tools, one of them is that we can have an arbitrary description attached in the tag, in fact, you can store the whole release announcements here. Moreover, as with the commit, is stored the identity of who made the tag and this identity can be verified if we add a cryptographically PGP sign to the tag
+
+
+\subsection{Merging}
+
+Merge on Git between branches is great!, all the history of both branches is preserved over the merges.
+When we make a merge we have two scenarios:
+Fast-forward merge: we refer to this when the changes only was made on only one of the branches, they are simply replayed on the other branch.
+Three-way merge: When changes exists on both branches, they are merged and git will report any conflict and let you resolve them. 
+
 
 \subsection{Pushing and fetching/pulling}
 
 When we want to share our work with the rest of the team we have two basic concepts, Push & Pull
-Push refers to taking all my changes and add them to the repository of another co-worker
+Push refers to taking all my changes and add them to the repository of another co-worker. But in practice we don't do this becouse we shouldn't make a push on a co-worker working copy, instead it, we make Push in a "central repository" where all team make their Pushes too, this logic is similar to traditional VCS, but we need to keep in mind that we could have a lot of "central repositorys" for different parts of our project.
 Pull is a compose action of fetch + merge, where fetch takes the changes from selected repository of a co-worker and copy them to my local repository, merge obiously merges those changes with the sourcecode of my local repository
-At the same way, another co-worker can do Pull over my repo and get my new code & changes
+At the same way, another co-worker can do Pull over my working copy and get my new code & changes without any problem.
 
 %Estos dos conceptos son distintos al check in / check out centralizado, 
 %consisten en el envío o recepción de commits entre dos repositorios. Aquí 

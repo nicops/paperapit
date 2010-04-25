@@ -189,10 +189,17 @@ Three-way merge: When changes exists on both branches, they are merged and git w
 
 \subsection{Pushing and fetching/pulling}
 
-When we want to share our work with the rest of the team we have two basic concepts, Push & Pull
-Push refers to taking all my changes and add them to the repository of another co-worker. But in practice we don't do this becouse we shouldn't make a push on a co-worker working copy, instead it, we make Push in a "central repository" where all team make their Pushes too, this logic is similar to traditional VCS, but we need to keep in mind that we could have a lot of "central repositorys" for different parts of our project.
-Pull is a compose action of fetch + merge, where fetch takes the changes from selected repository of a co-worker and copy them to my local repository, merge obiously merges those changes with the sourcecode of my local repository
-At the same way, another co-worker can do Pull over my working copy and get my new code & changes without any problem.
+When we want to share our work with the rest of the team we have two basic concepts, Push and Pull
+Push refers to taking all my changes and add them to the repository of another co-worker. 
+But in practice we don't do this becouse we shouldn't make a push on a co-worker working copy, 
+instead it, we make Push in a "central repository" where all team make their Pushes too, 
+this logic is similar to traditional VCS, but we need to keep in mind that we could have a 
+lot of "central repositorys" for different parts of our project.
+Pull is a compose action of fetch + merge, where fetch takes the changes from selected 
+repository of a co-worker and copy them to my local repository, merge obiously merges those 
+changes with the sourcecode of my local repository
+At the same way, another co-worker can do Pull over my working copy and get my new code and 
+changes without any problem.
 
 %Estos dos conceptos son distintos al check in / check out centralizado, 
 %consisten en el envío o recepción de commits entre dos repositorios. Aquí 

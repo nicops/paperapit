@@ -146,10 +146,14 @@ network connection, since commits are made on your repository.
 Changes can thus be shared between everyone passing changes between repositories, 
 without the need of making those changes in a central repository.
 
+\subsection{Performance}
+
 Operations being done offline also means that there is no network latency to be worried of,
 and can be more performant. Performance is important in VCS because if the revision
 system is too slow, it might affect the workflow of the tool. Operations like commits, 
-searching through the history, taking the diff out of two branches,  
+searching through the history, taking the diff out of two branches, and especially merging
+if not done fast enough are limiting what you can do with it, the impact of this depending of 
+the size of the repository.
 % Explicaremos el principio de funcionamiento de la herramienta distribuida 
 % y sus principales objetivos, contrastando el flujo de trabajo con el de un 
 % sistema de control de versiones centralizado. Básicamente que cada uno tiene 

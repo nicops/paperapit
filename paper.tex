@@ -138,18 +138,36 @@ Ejemplo de cita \cite{linusgit}
 %----------------------------------------------------------------------
 \section{Architecture}
 
-Explicaremos el principio de funcionamiento de la herramienta distribuida 
-y sus principales objetivos, contrastando el flujo de trabajo con el de un 
-sistema de control de versiones centralizado. Básicamente que cada uno tiene 
-su propio repositorio, que las versiones pueden ser infinitas (por más que 
-haya una(s) maestra(s)), que se puede trabajar offline, etc.
+In a DVCS like Git, everybody has the full repository in their hard drives.
+Since there is no central server, operations on the repository all are done 
+offline. This means that actions like commiting do not depend on having a 
+network connection, since commits are made on your repository.
+
+Changes can thus be shared between everyone passing changes between repositories, 
+without the need of making those changes in a central repository.
+
+% Explicaremos el principio de funcionamiento de la herramienta distribuida 
+% y sus principales objetivos, contrastando el flujo de trabajo con el de un 
+% sistema de control de versiones centralizado. Básicamente que cada uno tiene 
+% su propio repositorio, que las versiones pueden ser infinitas (por más que 
+% haya una(s) maestra(s)), que se puede trabajar offline, etc.
+
+% -habria que agregar una imagen de muetsra
 
 \subsection{Atomic Commits}
 
-En el sistema distribuido, hay una diferencia conceptual con los sistemas 
-centralizados acerca de la naturaleza de un commit. Se tiende a hacer commits
-más atómicos y lógicos ya que el commit se hace en el repositorio propio, 
-entonces no hay preocupaciones como romper el build.
+In a centralized VCS, most of the time commits aren't done until you are sure that 
+the change is well written and can be actually shared to everybody else, since the 
+commit is going to be shared as soon as it's done. In a DVCS the nature of the commits 
+change, since commits are made in the local repository, they tend to be more atomic, 
+and commits aren't huge changesets but can be logical, coherent changes.
+To do this in a centralized VCS, one would have to create a new branch of the source code, 
+and then merge the branch, but creating and merging branches all the time is 
+resource-consuming, and branches are seen by everybody in the 
+%En el sistema distribuido, hay una diferencia conceptual con los sistemas 
+%centralizados acerca de la naturaleza de un commit. Se tiende a hacer commits
+%más atómicos y lógicos ya que el commit se hace en el repositorio propio, 
+%entonces no hay preocupaciones como romper el build.
 
 \subsection{Branching and Merging}
 

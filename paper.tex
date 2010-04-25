@@ -146,6 +146,10 @@ network connection, since commits are made on your repository.
 Changes can thus be shared between everyone passing changes between repositories, 
 without the need of making those changes in a central repository.
 
+Operations being done offline also means that there is no network latency to be worried of,
+and can be more performant. Performance is important in VCS because if the revision
+system is too slow, it might affect the workflow of the tool. Operations like commits, 
+searching through the history, taking the diff out of two branches,  
 % Explicaremos el principio de funcionamiento de la herramienta distribuida 
 % y sus principales objetivos, contrastando el flujo de trabajo con el de un 
 % sistema de control de versiones centralizado. Básicamente que cada uno tiene 
@@ -157,14 +161,16 @@ without the need of making those changes in a central repository.
 \subsection{Atomic Commits}
 
 In a centralized VCS, most of the time commits aren't done until you are sure that 
-the change is well written and can be actually shared to everybody else, since the 
-commit is going to be shared as soon as it's done. In a DVCS the nature of the commits 
-change, since commits are made in the local repository, they tend to be more atomic, 
+the change is well tested and can be actually shared to everybody else, since the 
+commit is going to be shared as soon as it's done, and could ``break the build''. 
+In a DVCS the nature of the commits change, since commits are made in the local 
+repository, they tend to be more atomic, 
 and commits aren't huge changesets but can be logical, coherent changes.
 To do this in a centralized VCS, one would have to create a new branch of the source code, 
 and then merge the branch, but creating and merging branches all the time is 
 not effortless, and branches are seen by everybody that can access the repository, 
 so this is not always done.
+
 %En el sistema distribuido, hay una diferencia conceptual con los sistemas 
 %centralizados acerca de la naturaleza de un commit. Se tiende a hacer commits
 %más atómicos y lógicos ya que el commit se hace en el repositorio propio, 
@@ -172,9 +178,10 @@ so this is not always done.
 
 \subsection{Branching and Merging}
 
-En un sistema distribuido, tener muchísimos branches es sencillo, de hecho 
-es más que sencillo, es "natural". Lo que permite un sistema distribuido es 
-no solo tener branches baratos sino también simplificar los merges. 
+%En un sistema distribuido, tener muchísimos branches es sencillo, de hecho 
+%es más que sencillo, es "natural". Lo que permite un sistema distribuido es 
+%no solo tener branches baratos sino también simplificar los merges. 
+
 
 \subsection{Pushing and fetching/pulling}
 

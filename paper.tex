@@ -165,9 +165,10 @@ because commits aren't huge changesets but can be logical, coherent and smaller 
 
 Many little commits, if needed, can be grouped as a bigger, conceptual commit.
 To do this in a centralized VCS, one would have to create a new branch of the source code, 
-and then merge the branch, but creating and merging branches all the time is 
-not effortless, and branches are seen by everybody that can access the repository, 
+and then merge the branch back to the trunk. But creating and merging branches all the time is 
+not effortless, and branches can be seen by everybody that has access to the repository, 
 so this is not always done.
+
 Doing logical commits allows you to do apply a technique called ``cherry-picking'', 
 which consists of ``picking'' what changes you want to use in a version, and build 
 a new version containing only those changes. This way the revision tree is seen as a 

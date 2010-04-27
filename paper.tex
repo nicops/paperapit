@@ -233,6 +233,13 @@ read-only mode (via ssh, http, or just sharing the directory) to let other peopl
 %----------------------------------------------------------------------
 % SECTION III: Should I use it in my project?
 %----------------------------------------------------------------------
+%Explicar los casos donde resulta interesante aplicar esta herramienta. 
+%También la idea es mostrar configuraciones posibles para la empresa donde 
+%se vea la forma de hacer cosas que con un sistema no distribuido no sería 
+%posible, o como es posible hacer lo mismo que se podía hacer con svn 
+%(usando un repositorio que tenga el branch principal), de manera que 
+%no te limita.
+
 \section{Should I use it in my project?}
 
 As mentioned before, this tool allows for differents workflows that just weren't 
@@ -251,16 +258,22 @@ in a feature, pulling from each other, then let a third one fetch them and do a 
 discard it or merge it. A fourth could fetch all reviewed changes into a test version, to do an 
 acceptance test, and then merge the changes into a final version.
 
-%Explicar los casos donde resulta interesante aplicar esta herramienta. 
-%También la idea es mostrar configuraciones posibles para la empresa donde 
-%se vea la forma de hacer cosas que con un sistema no distribuido no sería 
-%posible, o como es posible hacer lo mismo que se podía hacer con svn 
-%(usando un repositorio que tenga el branch principal), de manera que 
-%no te limita.
+\subsection{Peer code review}
+If doing code review is a common practice, then using a DVCS can aid to this process. Since changes can be shared
+among any workstation, the reviewer can fetch the changes from the reviewee's workstation. The reviewer might be
+working on some other feature and may have it's workspace in an unstable state. But this is not a problem since the
+reviewer can just clone the reviewee's repository and can have it sepparatedly from its current changes.
+This also prevented them from sharing the code through a public repository, which can present some disadvantages like
+a third developer using code that is not yet intended for general use.
+
+After the review, they can push changes to some public repository for everyone to use, or the reviewer can push changes to the reviewee repository for further fixes. All of this is completely isolated from the rest of the team and with no commit history loose. 
 
 %----------------------------------------------------------------------
 % SECTION IV: Then, why should I use it in my project?
 %----------------------------------------------------------------------
+%Si mi proyecto es apto para aplicar la herramienta por qué debería utilizarla en 
+%vez de utilizar CVS/SVN/otros, mostrando los costos y ventajas y desventajas,
+% siempre desde el punto de vista "closed source" (debatible).
 \section{Then, why should I use it in my project?}
 Does everybody need these features? Speed, offline working, 
 and easyness of branching/merging are nice features even if you work simply pulling 
@@ -283,10 +296,6 @@ biased on Linux and doesn't really work out of the box in Windows, but works wit
 Mercurial is much more portable, but some tools are also incomplete, like hg-subversion (a tool 
 to interoperate with svn). Git has git-svn which allows to push and pull from svn repositories, 
 easing transitions.
-
-%Si mi proyecto es apto para aplicar la herramienta por qué debería utilizarla en 
-%vez de utilizar CVS/SVN/otros, mostrando los costos y ventajas y desventajas,
-% siempre desde el punto de vista "closed source" (debatible).
 
 
 %----------------------------------------------------------------------

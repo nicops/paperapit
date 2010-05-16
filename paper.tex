@@ -139,6 +139,22 @@ most commands having the same names in both tools.
 %----------------------------------------------------------------------
 \section{Architecture}
 
+A DVCS has many features that makes it perfect for distributed and non-distributed developments. Almost every feature is based on the fact that DVCS is distributed instead of centralized and therefore if you work distributed then merges would happen on a regular basis and they should be as fast and easy as possible, providing developers with a whole new set of tools and relieve them almost completely from having to code according to the rules required to work with a centralized CVS like system. 
+
+\subsection{Distributed}
+The idea behind being distributed means that no server has the full content of a repository but rather a clone of it with the changes that a particular developer has commited. This allows users to have their own clone on their own computer and work in a offline environment while being able to version their changes. It also makes the whole versioning system faster.
+
+\subsection{Change-sets}
+You could also create several other clones for every feature or bug that they want to develop and push those changes to another clone, a co-worker's repository for instance, and pull some changes from another co-worker to your local clone. To able to do this, a DVCS tracks change-sets instead of changes in individual files so that it can keep track of all the changes needed for a feature/bug to work. 
+
+\subsection{Patchs}
+The idea of having several clones, one for each feature or bug might be problematic so instead of doing that, you could have all your changes on a single clone and then select which one of those changes you want to commit. You can even select which parts of a single file you want to commit and which ones you don't, then group those changes and commit them in a very atomic way.
+
+\subsection{Flexibility}
+If you need a centralized repository you could still use a DVCS and all it's features while pushing all the changes to a particular repository. This shows how flexible a DVCS is, to the point of being able to describe it as a super-set of a centralized CVS although in really it is not.
+
+\subsection {Distributed Repository}
+
 In a DVCS like Git, everybody has the full repository in their hard drives.
 Since there is no central server, all the operations on the repository are done 
 offline. This means that actions like commiting do not depend on having a 
@@ -311,7 +327,13 @@ easing transitions.
 \emph{to be done}
 
 %----------------------------------------------------------------------
-
+\section{Glossary}
+{\renewcommand{\labelitemi}{$\triangleright$}
+\begin{itemize}
+\item CVS
+\item Centralized CVS
+\item Distributed/de-centralized CVS
+\end{itemize}
 
 \begin{thebibliography}{1}
 

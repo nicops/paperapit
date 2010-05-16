@@ -87,17 +87,51 @@ to be done
 %----------------------------------------------------------------------
 \section{Introduction}
 
-\PARstart Version Control Systems (VCS) usually track the whole history of the
-source code in a central server that everyone that can access. This 
-central server contains all the changes and branches of the code and 
-the users that can read the versions or commit changes have to connect 
-to this repository. The most popular today example of this approach is SVN, which is a 
-widely used VCS.
+% Un detalle que yo corregiría es la Introducción, creo que se  mezclan cosas con diferente 
+% nivel de detalle, entonces propondría hacer una intro de muy alto nivel, que se concentre 
+% en contar el problema y describir el objetivo del artículo.
+% Por otro lado la reseña histórica iría en una sección aparte.
 
-Distributed Version Control Systems (DVCS) are a modern way of managing
-revisions of software that do not have a centralized server, for this reason 
-they are also called De-centralized Version Control Systems. Everybody has a 
-copy of the full repository with all changes made in the history.
+\PARstart Most software projects use Version Control Systems (VCS) to manage revisions
+of source code. 
+Version Control Systems traditionally track the whole history of the
+source code in a central server that everyone that can access. 
+%This central server contains all the changes and branches of the code and 
+%the users that can read the versions or commit changes have to connect 
+%to this repository. 
+Users need to access this central server to work with their VCS.
+A modern, different approach of doing revision control is using a \emph{Distributed} Version Control System (DVCS).
+In these systems, there is no central server that contains the history and tracks changes,
+instead everyone has a copy of the full repository with the complete history.
+Given the lack of a centralized server they are also called De-centralized Version Control Systems.
+
+In this paper we're going explain what DVCS are, based on the distributed system Git, 
+and compare them to centralized Version Control Systems,
+highlighting the differences, advantages and disadvantages of both approachs in various 
+contexts, in a both a conceptual level, and a practical level of actual VCS; ultimately 
+evaluating when to use or not Distributed Version Control Systems. 
+
+% Explain DVCS, particulary GIT
+% Comparison between DVCS and CVCS
+% When we should or we shouldn't use it.
+
+
+
+%Vamos a contar cuando surgió esta tecnología y sus principales 
+%exponentes en la actualidad. Vamos a basarnos en GIT pero hay muchas 
+%similitudes con otros sistemas de versionado distribuidos como Mercurial. 
+%Un poco se contará las diferencias fundamentales entre las herramientas de 
+%versionado centralizadas y distribuidas, simplemente nombrando las diferencias 
+%pero no explicándolas. 
+
+
+%La idea del paper sería contar las ventajas que puede 
+%tener este esquema dentro de un ambiente enterprise de código cerrado, en contraste 
+%a un ambiente open source donde el esquema distribuido tiene incluso más sentido.
+
+%Ejemplo de cita \cite{linusgit} 
+
+\section{DVCS history}
 
 The concept of distributed repositories came up first on the commercial product 
 Sun TeamWare (\emph{good citation needed}), designed by Larry McVoy who later went 
@@ -105,19 +139,15 @@ on to design BitKeeper, another commercial VCS which expanded on those ideas.
 BitKeeper was used from 2002 to 2005 to manage the Linux kernel source until 
 the license to use BitKeeper was finished. 
 To replace the use of BitKeeper in the Linux kernel, two projects started, Git (by
-Linus Torvalds \cite{linusgit} and 
-Mercurial, both now mature DVCS. Other open source DVCS in use today are Bazaar, 
+Linus Torvalds \cite{linusgit} and Mercurial, both now mature DVCS. 
+Other open source DVCS in use today are Bazaar, 
 developed by Canonical Ltd. and used to maintain the Ubuntu codebase, and Darcs, based on 
 the idea of tracking only patches and not versions.
 
-We're going to do a comparison between centralized and decentralized control version systems,
-highlighting the differences and advantages and disadvantages of both approachs in various 
-contexts, both on a conceptual and practical level. In this paper we'll base our explanations 
-on Git but there are no big differences between 
-most of these DVCS, especially between Git and Mercurial that are largely similar, with 
-most commands having the same names in both tools.
+For reference, in this paper we'll base our explanations on Git but for most features there 
+are no big differences between most of these DVCS, especially between Git and Mercurial which are 
+largely similar, with most commands having the same names in both tools.
 
-%Ejemplo de cita \cite{linusgit} 
 
 %----------------------------------------------------------------------
 % SECTION II: Architecture
@@ -177,9 +207,37 @@ which consists of ``picking'' what changes you want to use in a version, and bui
 a new version containing only those changes. This way the revision tree is seen as a 
 series of \emph{changesets} or \emph{patches} instead of just a series of static versions.
 
+\subsection{Merging}
+Merging on Git between branches is greatly improved over SVN, because all the history of 
+both branches is preserved over the merges. %agregar citation
+
+\subsection{Sharing changes}
+If you work simply pulling and pushing against a central repository, those operations do look 
+very much like the operations idea of check out and check in in a centralized VCS, 
+but that's the only way of sharing changes in a centralized VCS.
+In a DVCS, since every repository is a peer to each other, anyone can share their repository in 
+read-only mode (via ssh, http, or simply sharing the directory) to let other people pull from them. 
+
+\subsection{Repository Size}
+
+Centralized VCS also have their advantages, you don't need to have the whole history in your 
+personal repository so you can save space, for example in Perforce you can check out only a part of the 
+repository\cite{perforceclientspec} while in Git repositories can't handle millions of file 
+without getting a performance hit on some operations\cite{linusgit}.
+
+%Estos dos conceptos son distintos al check in / check out centralizado, 
+%consisten en el envío o recepción de commits entre dos repositorios. Aquí 
+%explicaremos un poco en que consisten y cuando hay que usar uno u otro.
+
 %----------------------------------------------------------------------
 % SECTION III: Should I use it in my project?
 %----------------------------------------------------------------------
+%Explicar los casos donde resulta interesante aplicar esta herramienta. 
+%También la idea es mostrar configuraciones posibles para la empresa donde 
+%se vea la forma de hacer cosas que con un sistema no distribuido no sería 
+%posible, o como es posible hacer lo mismo que se podía hacer con svn 
+%(usando un repositorio que tenga el branch principal), de manera que 
+%no te limita.
 
 \section{Possible workflows}
 
@@ -200,9 +258,12 @@ discard it or merge it. A fourth could fetch all reviewed changes into a test ve
 acceptance test, and then merge the changes into a final version.
 
 \subsection{Peer code review}
-Using a DCVS can help isolate the code review between both developers without disrupting the rest of the team.
-Since changes can be shared among any workstation, the reviewer can fetch the changes from the reviewee's workstation. The reviewer might be working on some other feature and may have it's workspace in an unstable state. But this is not a problem since the reviewer can just clone the reviewee's repository and can have it separately from its current changes.
-This also prevented them from sharing the code through a public repository, which can present some disadvantages like a third developer using code that is not yet intended for general use.
+If doing code review is a common practice, then using a DVCS can aid to this process. Since changes can be shared
+among any workstation, the reviewer can fetch the changes from the reviewee's workstation. The reviewer might be
+working on some other feature and may have it's workspace in an unstable state. But this is not a problem since the
+reviewer can just clone the reviewee's repository and can have it sepparatedly from its current changes.
+This also prevented them from sharing the code through a public repository, which can present some disadvantages like
+a third developer using code that is not yet intended for general use.
 
 After the review, they can push changes to some public repository for everyone to use, or the reviewer can push changes to the reviewee repository for further fixes. All of this is completely isolated from the rest of the team and with no commit history loose.
 
@@ -226,6 +287,9 @@ It is also possible to have an automatic integration manager. This server will a
 %----------------------------------------------------------------------
 \section{Conclusion}
 
+%Si mi proyecto es apto para aplicar la herramienta por qué debería utilizarla en 
+%vez de utilizar CVS/SVN/otros, mostrando los costos y ventajas y desventajas,
+% siempre desde el punto de vista "closed source" (debatible).
 \subsection{why should I use it in my project?}
 Does everybody need these features? Speed, offline working, 
 and easyness of branching/merging are nice features even if you work simply pulling 
@@ -237,10 +301,6 @@ repository, there may not be enough to gain to balance the cost of changing. Dis
 versioning \emph{is} more complex, and there is a ``conceptual overhead'' in the usage 
 of it, even if most of the time you can ignore most features and use just what you need 
 (even for one person proyects, Git and Mercurial may be easier to use than SVN).
-Centralized VCS also have their advantages, you don't need to have the whole history in your 
-personal repository so you can save space, for example in Perforce you can check out only a part of the 
-repository\cite{perforceclientspec} while in Git repositories can't handle millions of file 
-without getting a performance hit on some operations\cite{linusgit}.
 
 Another issue with these systems is that the tool support and various plugins just isn't as 
 mature as systems like SVN, which are much more mature in that regard. Git, in particular, is 
@@ -251,14 +311,6 @@ easing transitions.
 
 
 %----------------------------------------------------------------------
-<<<<<<< HEAD
-% SECTION VII: Conclusions
-%----------------------------------------------------------------------
-\section{Conclusion}
-
-\emph{to be done}
-
-%----------------------------------------------------------------------
 \section{Glossary}
 {\renewcommand{\labelitemi}{$\triangleright$}
 \begin{itemize}
@@ -266,9 +318,6 @@ easing transitions.
 \item Centralized CVS
 \item Distributed/de-centralized CVS
 \end{itemize}
-=======
-
->>>>>>> origin/master
 
 \begin{thebibliography}{1}
 

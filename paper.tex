@@ -220,11 +220,6 @@ then those changes are merged with the sourcecode of my local repository.
 In the same way, another peer can pull on my working copy and get my code and 
 changes without any problem.
 
-If you work against a central repository, pulling and pushing do look very much like
-the idea of checking out and checking in, but that's the only way of working in a centralized VCS.
-In a DVCS, since every repository is a peer to each other, anyone can share their repository in 
-read-only mode (via ssh, http, or just sharing the directory) to let other people pull from them. 
-
 \section{Comparison}
 
 \subsection{Commits}
@@ -236,6 +231,17 @@ Also, DVCS allow to apply a technique called ``cherry-picking'',
 which consists of ``picking'' what changes you want to use in a version, and build 
 a new version containing only those changes. This way the revision tree is seen as a 
 series of \emph{changesets} or \emph{patches} instead of just a series of static versions.
+
+\subsection{Merging}
+Merging on Git between branches is greatly improved over SVN, because all the history of 
+both branches is preserved over the merges. %agregar citation
+
+\subsection{Sharing changes}
+If you work simply pulling and pushing against a central repository, those operations do look 
+very much like the operations idea of check out and check in in a centralized VCS, 
+but that's the only way of sharing changes in a centralized VCS.
+In a DVCS, since every repository is a peer to each other, anyone can share their repository in 
+read-only mode (via ssh, http, or simply sharing the directory) to let other people pull from them. 
 
 %Estos dos conceptos son distintos al check in / check out centralizado, 
 %consisten en el envío o recepción de commits entre dos repositorios. Aquí 
@@ -287,6 +293,8 @@ Then both repositories can be merged togheter into an integration one by pulling
 \subsection{Centralized repository with integration manager}
 It is possible to have a single central repository where all developers have read access. Everyone has an official public version from which they can work from. Then, to add new change sets to the official version, an integration manager can pull the changes from each developer (or each team) to have all the changes tested and reviewed. When the build is good enough the integration manager can push the changes to the central repository so all developers have the new version available.
 It is also possible to have an automatic integration manager. This server will accept pushes, run all tests and if everything is ok it will then push this changes to the central repository. Otherwise it can discard the changes and signal the developer the reasons (most likely through an email).
+
+In case the number of developers is really big (for instance on an OpenSource project) then a single person cannot deal with the integration from all of them. Then a hierarchycal approach can be taken and there will be a level of integrators who are responsable for merging all the changes from a particular subsystem. A main integrator will merge all the changes from the subsystem's integrator to create and publish the public version.
 
 
 %----------------------------------------------------------------------

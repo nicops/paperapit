@@ -276,12 +276,9 @@ discard it or merge it. A fourth could fetch all reviewed changes into a test ve
 acceptance test, and then merge the changes into a final version.
 
 \subsection{Peer code review}
-If doing code review is a common practice, then using a DVCS can aid to this process. Since changes can be shared
-among any workstation, the reviewer can fetch the changes from the reviewee's workstation. The reviewer might be
-working on some other feature and may have it's workspace in an unstable state. But this is not a problem since the
-reviewer can just clone the reviewee's repository and can have it sepparatedly from its current changes.
-This also prevented them from sharing the code through a public repository, which can present some disadvantages like
-a third developer using code that is not yet intended for general use.
+Using a DCVS can help isolate the code review between both developers without disrupting the rest of the team.
+Since changes can be shared among any workstation, the reviewer can fetch the changes from the reviewee's workstation. The reviewer might be working on some other feature and may have it's workspace in an unstable state. But this is not a problem since the reviewer can just clone the reviewee's repository and can have it separately from its current changes.
+This also prevented them from sharing the code through a public repository, which can present some disadvantages like a third developer using code that is not yet intended for general use.
 
 After the review, they can push changes to some public repository for everyone to use, or the reviewer can push changes to the reviewee repository for further fixes. All of this is completely isolated from the rest of the team and with no commit history loose.
 

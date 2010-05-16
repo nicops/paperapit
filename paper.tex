@@ -87,35 +87,31 @@ to be done
 %----------------------------------------------------------------------
 \section{Introduction}
 
-% Un detalle que yo corregiría es la Introducción, creo que se  mezclan cosas con diferente 
-% nivel de detalle, entonces propondría hacer una intro de muy alto nivel, que se concentre 
-% en contar el problema y describir el objetivo del artículo.
-% Por otro lado la reseña histórica iría en una sección aparte.
+%It is given that, in these times, modern software projects need a tool to 
+%automatically track changes made in the source files, called Version Control Systems (VCS). 
 
-\PARstart Most software projects use Version Control Systems (VCS) to manage revisions
-of source code. 
-Version Control Systems traditionally track the whole history of the
-source code in a central server that everyone that can access. 
-%This central server contains all the changes and branches of the code and 
-%the users that can read the versions or commit changes have to connect 
-%to this repository. 
-Users need to access this central server to work with their VCS.
-A modern, different approach of doing revision control is using a \emph{Distributed} Version Control System (DVCS).
-In these systems, there is no central server that contains the history and tracks changes,
-instead everyone has a copy of the full repository with the complete history.
-Given the lack of a centralized server they are also called De-centralized Version Control Systems.
+\PARstart Version Control Systems (VCS) usually track the whole history of the
+source code in a central server that everyone that can access. This 
+central server contains all the changes and branches of the code and 
+the users that can read the versions or commit changes have to connect 
+to this repository. The most popular today example of this approach is SVN, which is a 
+widely used VCS.
 
-In this paper we're going explain what DVCS are, based on the distributed system Git, 
-and compare them to centralized Version Control Systems,
-highlighting the differences, advantages and disadvantages of both approachs in various 
-contexts, in a both a conceptual level, and a practical level of actual VCS; ultimately 
-evaluating when to use or not Distributed Version Control Systems. 
+Distributed Version Control Systems (DVCS) are a modern way of managing
+revisions of software that do not have a centralized server, for this reason 
+they are also called De-centralized Version Control Systems. Everybody has a 
+copy of the full repository with all changes made in the history.
 
-% Explain DVCS, particulary GIT
-% Comparison between DVCS and CVCS
-% When we should or we shouldn't use it.
-
-
+The concept of distributed repositories came up first on the commercial product 
+Sun TeamWare (\emph{good citation needed}), designed by Larry McVoy who later went 
+on to design BitKeeper, another commercial VCS which expanded on those ideas. 
+BitKeeper was used from 2002 to 2005 to manage the Linux kernel source until 
+the license to use BitKeeper was finished. 
+To replace the use of BitKeeper in the Linux kernel, two projects started, Git (by
+Linus Torvalds \cite{linusgit} and 
+Mercurial, both now mature DVCS. Other open source DVCS in use today are Bazaar, 
+developed by Canonical Ltd. and used to maintain the Ubuntu codebase, and Darcs, based on 
+the idea of tracking only patches and not versions.
 
 %Vamos a contar cuando surgió esta tecnología y sus principales 
 %exponentes en la actualidad. Vamos a basarnos en GIT pero hay muchas 
@@ -124,29 +120,18 @@ evaluating when to use or not Distributed Version Control Systems.
 %versionado centralizadas y distribuidas, simplemente nombrando las diferencias 
 %pero no explicándolas. 
 
+We're going to do a comparison between centralized and decentralized control version systems,
+highlighting the differences and advantages and disadvantages of both approachs in various 
+contexts, both on a conceptual and practical level. In this paper we'll base our explanations 
+on Git but there are no big differences between 
+most of these DVCS, especially between Git and Mercurial that are largely similar, with 
+most commands having the same names in both tools.
 
 %La idea del paper sería contar las ventajas que puede 
 %tener este esquema dentro de un ambiente enterprise de código cerrado, en contraste 
 %a un ambiente open source donde el esquema distribuido tiene incluso más sentido.
 
 %Ejemplo de cita \cite{linusgit} 
-
-\section{DVCS history}
-
-The concept of distributed repositories came up first on the commercial product 
-Sun TeamWare (\emph{good citation needed}), designed by Larry McVoy who later went 
-on to design BitKeeper, another commercial VCS which expanded on those ideas. 
-BitKeeper was used from 2002 to 2005 to manage the Linux kernel source until 
-the license to use BitKeeper was finished. 
-To replace the use of BitKeeper in the Linux kernel, two projects started, Git (by
-Linus Torvalds \cite{linusgit} and Mercurial, both now mature DVCS. 
-Other open source DVCS in use today are Bazaar, 
-developed by Canonical Ltd. and used to maintain the Ubuntu codebase, and Darcs, based on 
-the idea of tracking only patches and not versions.
-
-For reference, in this paper we'll base our explanations on Git but for most features there 
-are no big differences between most of these DVCS, especially between Git and Mercurial which are 
-largely similar, with most commands having the same names in both tools.
 
 
 %----------------------------------------------------------------------
@@ -287,6 +272,10 @@ After the review, they can push changes to some public repository for everyone t
 If the application being developed requires a large amount of people working at the same time, it is very likely that they are working on different subsystems. Each subteam can be working on a different repository, and so the chances of one team messing with the other teams build is completely removed. This helps each team to mantain their own build and if a problem on the build arises, then it is something to be solved between a reduced group of people.
 
 Then both repositories can be merged togheter into an integration one by pulling from each of them. If there are conflicts which cannot be resolved easily, it is possible to ask the team who caused the conflict to solve it since all history is preserved. Then this team can clone the integration repository and merge it with its working repository. They can ask the person in charge to pull the changes back again.
+
+\subsection{Centralized repository with integration manager}
+It is possible to have a single central repository where all developers have read access. Everyone has an official public version from which they can work from. Then, to add new change sets to the official version, an integration manager can pull the changes from each developer (or each team) to have all the changes tested and reviewed. When the build is good enough the integration manager can push the changes to the central repository so all developers have the new version available.
+
 
 %----------------------------------------------------------------------
 % SECTION IV: Then, why should I use it in my project?

@@ -56,7 +56,7 @@
 % MAKE SURE THERE ARE NO SPACES BEFORE A \member OR \authorinfo
 % COMMAND (this also means `don't break the line before these
 % commands).
-\author[GRUPOAPIT]{Damian Alonso,
+\author[GRUPOAPIT]{Demian Alonso,
 \and{} Bruno Bonnano,
 \and{} Nicol\'{a}s Calligaro
 \and{}and Nicol\'{a}s Perez Santoro
@@ -241,6 +241,17 @@ the idea of checking out and checking in, but that's the only way of working in 
 In a DVCS, since every repository is a peer to each other, anyone can share their repository in 
 read-only mode (via ssh, http, or just sharing the directory) to let other people pull from them. 
 
+\section{Comparison}
+
+\subsection{Commits}
+In a DVCS the nature of the commits is different to centralized VCS, since commits are made in the local repository only. 
+Commiting in centralized VCS means ``to share the change with everyone that queries the centralized server'' while in a 
+DVCS means to store a change in the history, which is not shared until it's pushed or pulled into another repository.
+
+Also, DVCS allow to apply a technique called ``cherry-picking'', 
+which consists of ``picking'' what changes you want to use in a version, and build 
+a new version containing only those changes. This way the revision tree is seen as a 
+series of \emph{changesets} or \emph{patches} instead of just a series of static versions.
 
 %Estos dos conceptos son distintos al check in / check out centralizado, 
 %consisten en el envío o recepción de commits entre dos repositorios. Aquí 
@@ -256,7 +267,7 @@ read-only mode (via ssh, http, or just sharing the directory) to let other peopl
 %(usando un repositorio que tenga el branch principal), de manera que 
 %no te limita.
 
-\section{Should I use it in my project?}
+\section{Possible workflows}
 
 As mentioned before, this tool allows for differents workflows that just weren't 
 possible before.
@@ -287,7 +298,12 @@ After the review, they can push changes to some public repository for everyone t
 \subsection{Independent subteams}
 If the application being developed requires a large amount of people working at the same time, it is very likely that they are working on different subsystems. Each subteam can be working on a different repository, and so the chances of one team messing with the other teams build is completely removed. This helps each team to mantain their own build and if a problem on the build arises, then it is something to be solved between a reduced group of people.
 
-Then both repositories can be merged togheter into an integration one by pulling from each of them. If there are conflicts which cannot be resolved easily, it is possible to ask the team who caused the conflict to solve it since all history is preserved. Then this team con clone the integration repository and merge it with its working repository. They can ask the person in charge to pull the changes back again.
+Then both repositories can be merged togheter into an integration one by pulling from each of them. If there are conflicts which cannot be resolved easily, it is possible to ask the team who caused the conflict to solve it since all history is preserved. Then this team can clone the integration repository and merge it with its working repository. They can ask the person in charge to pull the changes back again.
+
+\subsection{Centralized repository with integration manager}
+It is possible to have a single central repository where all developers have read access. Everyone has an official public version from which they can work from. Then, to add new change sets to the official version, an integration manager can pull the changes from each developer (or each team) to have all the changes tested and reviewed. When the build is good enough the integration manager can push the changes to the central repository so all developers have the new version available.
+It is also possible to have an automatic integration manager. This server will accept pushes, run all tests and if everything is ok it will then push this changes to the central repository. Otherwise it can discard the changes and signal the developer the reasons (most likely through an email).
+
 
 %----------------------------------------------------------------------
 % SECTION IV: Then, why should I use it in my project?

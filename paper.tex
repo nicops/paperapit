@@ -24,6 +24,12 @@
 
 \newcommand{\latexiie}{\LaTeX2{\Large$_\varepsilon$}}
 \usepackage{graphicx}
+
+
+\newcommand{\diagrama}[1]{\begin{center}
+    \includegraphics[width=.8\linewidth, keepaspectratio]{#1} 
+\end{center}}
+
 %\usepackage{ieeetsp}	% if you want the "trans. sig. pro." style
 %\usepackage{ieeetc}	% if you want the "trans. comp." style
 %\usepackage{ieeeimtc}	% if you want the IMTC conference style
@@ -267,14 +273,19 @@ a third developer using code that is not yet intended for general use.
 
 After the review, they can push changes to some public repository for everyone to use, or the reviewer can push changes to the reviewee repository for further fixes. All of this is completely isolated from the rest of the team and with no commit history loose.
 
+\diagrama{PeerCodeReview.jpg}
+
 \subsection{Independent subteams}
 If the application being developed requires a large amount of people working at the same time, it is very likely that they are working on different subsystems. Each subteam can be working on a different repository, and so the chances of one team messing with the other teams build is completely removed. This helps each team to mantain their own build and if a problem on the build arises, then it is something to be solved between a reduced group of people.
 
 Then both repositories can be merged togheter into an integration one by pulling from each of them. If there are conflicts which cannot be resolved easily, it is possible to ask the team who caused the conflict to solve it since all history is preserved. Then this team can clone the integration repository and merge it with its working repository. They can ask the person in charge to pull the changes back again.
 
+\diagrama{IndependentSubteams.jpg}
 \subsection{Centralized repository with integration manager}
 It is possible to have a single central repository where all developers have read access. Everyone has an official public version from which they can work from. Then, to add new change sets to the official version, an integration manager can pull the changes from each developer (or each team) to have all the changes tested and reviewed. When the build is good enough the integration manager can push the changes to the central repository so all developers have the new version available.
 It is also possible to have an automatic integration manager. This server will accept pushes, run all tests and if everything is ok it will then push this changes to the central repository. Otherwise it can discard the changes and signal the developer the reasons (most likely through an email).
+
+\diagrama{ResponsableIntegracion.jpg}
 
 
 %----------------------------------------------------------------------

@@ -225,19 +225,19 @@ personal repository so you can save space, for example in Perforce you can check
 repository\cite{perforceclientspec} while in Git repositories can't handle millions of file 
 without getting a performance hit on some operations\cite{linusgit}.
 
-%Estos dos conceptos son distintos al check in / check out centralizado, 
-%consisten en el envío o recepción de commits entre dos repositorios. Aquí 
-%explicaremos un poco en que consisten y cuando hay que usar uno u otro.
+\subsection{Tool support}
+%the idea here is to explain a bit the state of the art in the toolchain support
+%eclipse plugins, tortoisegit 'n tortoisehg, etc.
+
+With these DVCS, tool support and various plugins just isn't as 
+mature as systems like SVN, which are more mature and well tested. 
+Git, in particular, is biased on Linux and doesn't really work out of the box in Windows, but works with Cygwin. 
+Mercurial is much more portable, but some tools are also incomplete, like hg-subversion (a tool 
+to interoperate with svn). Git has git-svn which allows to push and pull from svn repositories, 
+easing transitions.
+
 
 %----------------------------------------------------------------------
-% SECTION III: Should I use it in my project?
-%----------------------------------------------------------------------
-%Explicar los casos donde resulta interesante aplicar esta herramienta. 
-%También la idea es mostrar configuraciones posibles para la empresa donde 
-%se vea la forma de hacer cosas que con un sistema no distribuido no sería 
-%posible, o como es posible hacer lo mismo que se podía hacer con svn 
-%(usando un repositorio que tenga el branch principal), de manera que 
-%no te limita.
 
 \section{Possible workflows}
 
@@ -290,7 +290,7 @@ It is also possible to have an automatic integration manager. This server will a
 %Si mi proyecto es apto para aplicar la herramienta por qué debería utilizarla en 
 %vez de utilizar CVS/SVN/otros, mostrando los costos y ventajas y desventajas,
 % siempre desde el punto de vista "closed source" (debatible).
-\subsection{why should I use it in my project?}
+%\subsection{Should I use it in my project?}
 Does everybody need these features? Speed, offline working, 
 and easyness of branching/merging are nice features even if you work simply pulling 
 and pushing changes against a central repository and not every peer out there. In some 
@@ -302,12 +302,20 @@ versioning \emph{is} more complex, and there is a ``conceptual overhead'' in the
 of it, even if most of the time you can ignore most features and use just what you need 
 (even for one person proyects, Git and Mercurial may be easier to use than SVN).
 
-Another issue with these systems is that the tool support and various plugins just isn't as 
-mature as systems like SVN, which are much more mature in that regard. Git, in particular, is 
-biased on Linux and doesn't really work out of the box in Windows, but works with Cygwin. 
-Mercurial is much more portable, but some tools are also incomplete, like hg-subversion (a tool 
-to interoperate with svn). Git has git-svn which allows to push and pull from svn repositories, 
-easing transitions.
+The general lack of maturity in the tools is also a disadvantage, since the most flexible
+way of working is the command-line interface. This makes it a bit harder to use because there 
+are many commands, and they have a lot of options and some problems may not have an intuitive 
+solution. There is more to learn and to use.
+
+If there is no need to use anything but a centralized workflow, as in Continous Integration 
+workflows, there might be little justification to use DVCS because changes are supposed to be 
+integrated quickly in the main repository.
+
+Beside these general warnings, Distributed VCS is simply more powerful and flexible than Centralized CVS.
+Everything that can be done with a centralized schema can be done in a distributed fashion, but the inverse
+is not true. 
+
+
 
 
 %----------------------------------------------------------------------

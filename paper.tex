@@ -275,6 +275,12 @@ After the review, they can push changes to some public repository for everyone t
 
 \diagrama{PeerCodeReview.jpg}
 
+\subsection{Centralized server}
+The classic workflow where there is one central server which has the whole project is also available. In this case all developers has access to the server and can pull and push changes from it. The main advantages is that any developer can share changes among other developer without needing to use the central server. However once a piece of code is considered finished it should be pushed to this server.
+
+\diagrama{RepoCentral.jpg}
+
+
 \subsection{Independent subteams}
 If the application being developed requires a large amount of people working at the same time, it is very likely that they are working on different subsystems. Each subteam can be working on a different repository, and so the chances of one team messing with the other teams build is completely removed. This helps each team to mantain their own build and if a problem on the build arises, then it is something to be solved between a reduced group of people.
 

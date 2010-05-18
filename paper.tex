@@ -26,9 +26,14 @@
 \usepackage{graphicx}
 
 
-\newcommand{\diagrama}[1]{\begin{center}
-    \includegraphics[width=.8\linewidth, keepaspectratio]{#1} 
-\end{center}}
+\newcommand{\diagrama}[2]{
+    \begin{figure}[h]
+        \begin{center}
+            \includegraphics[width=.8\linewidth, keepaspectratio]{#1} 
+        \end{center}
+        \caption{#2}
+    \end{figure}
+}
 
 %\usepackage{ieeetsp}	% if you want the "trans. sig. pro." style
 %\usepackage{ieeetc}	% if you want the "trans. comp." style
@@ -273,12 +278,12 @@ a third developer using code that is not yet intended for general use.
 
 After the review, they can push changes to some public repository for everyone to use, or the reviewer can push changes to the reviewee repository for further fixes. All of this is completely isolated from the rest of the team and with no commit history loose.
 
-\diagrama{PeerCodeReview.jpg}
+\diagrama{PeerCodeReview.jpg}{Peer Code Review workflow}
 
-\subsection{Centralized server}
+\subsection{Centralized Server}
 The classic workflow where there is one central server which has the whole project is also available. In this case all developers has access to the server and can pull and push changes from it. The main advantages is that any developer can share changes among other developer without needing to use the central server. However once a piece of code is considered finished it should be pushed to this server.
 
-\diagrama{RepoCentral.jpg}
+\diagrama{RepoCentral.jpg}{Centralized Server workflow}
 
 
 \subsection{Independent subteams}
@@ -286,12 +291,14 @@ If the application being developed requires a large amount of people working at 
 
 Then both repositories can be merged togheter into an integration one by pulling from each of them. If there are conflicts which cannot be resolved easily, it is possible to ask the team who caused the conflict to solve it since all history is preserved. Then this team can clone the integration repository and merge it with its working repository. They can ask the person in charge to pull the changes back again.
 
-\diagrama{IndependentSubteams.jpg}
+\diagrama{IndependentSubteams.jpg}{Independent Subteams workflow}
+
+
 \subsection{Centralized repository with integration manager}
 It is possible to have a single central repository where all developers have read access. Everyone has an official public version from which they can work from. Then, to add new change sets to the official version, an integration manager can pull the changes from each developer (or each team) to have all the changes tested and reviewed. When the build is good enough the integration manager can push the changes to the central repository so all developers have the new version available.
 It is also possible to have an automatic integration manager. This server will accept pushes, run all tests and if everything is ok it will then push this changes to the central repository. Otherwise it can discard the changes and signal the developer the reasons (most likely through an email).
 
-\diagrama{ResponsableIntegracion.jpg}
+\diagrama{ResponsableIntegracion.jpg}{Centralized repository with integration manager workflow}
 
 
 %----------------------------------------------------------------------

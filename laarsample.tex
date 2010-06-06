@@ -142,15 +142,15 @@ There are several DVCS in the market nowadays and most of them are open, free or
 One key aspect of VCS is its performance. It was said previously in this document that the merging process was crucial for a DVCS because it's something that you'll probably have to do several times during a day in a distributed environment and therefore it should be as fast as possible. This is not the case for all DVCS tools. In the following charts\cite{dvcsperfcomparison} we'll compare some of the most widely used DVCS. 
 
 This benchmark simulates a linearly growing repository, being sequentially filled with 4000 files. Each file is modified five times. At the end of the test, the repository had 24,000 revisions. 
-\diagrama{dvcs_roundup_plot_commits.png}{Check-in Dependence on Repository Growth}
+\diagrama{dvcs_roundup_plot_commits.jpg}{Check-in Dependence on Repository Growth}
 As you can see in the chart above, the time that takes to do a check-in is not constant and differs a lot from one DVCS to another. While Git takes almost nothing to do it no matter the size of the repository, others like darcs take up to 5 seconds.
 
 If you verify the size of the resulting repository on the previous simulation you would find the following:
-\diagrama{dvcs_roundup_plot_sizes.png}{Repository Size Growth}
+\diagrama{dvcs_roundup_plot_sizes.jpg}{Repository Size Growth}
 Doing the math you will see that the resulting checkout is about 15MBs. SVK needs almost 1.8 GB to store that repository, while the rest of them needs less that 150MB. You might notice that Git has a "saw tooth" shape. That's because Git regulary optimizes its repository. 
 
 The following benchmarks tested how much time it took to add a certain number of files to an empty repository. 
-\diagrama{dvcs_roundup_plot_steps1.png}{Dependance on Check-in Size}
+\diagrama{dvcs_roundup_plot_steps1.jpg}{Dependance on Check-in Size}
 Once again, Git is the fastest, taking only 300ms to add 2000 files, while SVK needed almost 23 minutes to add the same amount of files. 
 
 \subsection{Commits}

@@ -1,13 +1,11 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.5.8)  6 JUN 2010 17:50
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.5.16)  6 JUN 2010 19:51
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
-**laarsample.tex
-(./laarsample.tex
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, loaded.
-(/usr/share/texmf-texlive/tex/latex/base/latex209.def
+**D:/GIT/paper2/paperapit/laarsample.tex
+(D:/GIT/paper2/paperapit/laarsample.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, german, ngerman, german-x-2009-06-19, ngerm
+an-x-2009-06-19, french, loaded.
+("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\latex209.def"
 File: latex209.def 1998/05/13 v0.52 Standard LaTeX file
 
 
@@ -40,7 +38,7 @@ File: latex209.def 1998/05/13 v0.52 Standard LaTeX file
 \@cla=\count79
 \@clb=\count80
 \mscount=\count81
-(/usr/share/texmf-texlive/tex/latex/base/tracefnt.sty
+("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\tracefnt.sty"
 Package: tracefnt 1997/05/29 v3.0j Standard LaTeX package (font tracing)
 \tracingfonts=\count82
 LaTeX Info: Redefining \selectfont on input line 101.
@@ -57,7 +55,7 @@ LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 295.
 LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 301.
 LaTeX Info: Redefining \em on input line 311.
 
-(/usr/share/texmf-texlive/tex/latex/base/latexsym.sty
+("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\latexsym.sty"
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup10
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
@@ -67,10 +65,10 @@ LaTeX Font Info:    Redeclaring math delimiter \lgroup on input line 375.
 LaTeX Font Info:    Redeclaring math delimiter \rgroup on input line 377.
 LaTeX Font Info:    Redeclaring math delimiter \bracevert on input line 379.
 )
-(/usr/share/texmf-texlive/tex/latex/base/article.cls
-Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/share/texmf-texlive/tex/latex/base/size10.clo
-File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\article.cls"
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\size10.clo"
+File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
 )
 \c@part=\count83
 \c@section=\count84
@@ -92,80 +90,156 @@ Compatibility mode: definition of \sc ignored.
 LaTeX Info: Redefining \cal on input line 506.
 LaTeX Info: Redefining \mit on input line 507.
 \bibindent=\dimen105
-) (./laarstyle.sty)
-(./laarsample.aux)
-\openout1 = `laarsample.aux'.
+) (D:\GIT\paper2\paperapit\laarstyle.sty)
+("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\graphics\graphics.sty"
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 90.
+
+("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2009/08/25 v0.04m Graphics/color for pdfTeX
+\Gread@gobject=\count91
+))
+\Gin@req@height=\dimen106
+\Gin@req@width=\dimen107
+)
+("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\fancyhdr\fancyhdr.sty"
+\fancy@headwidth=\skip43
+\f@ncyO@elh=\skip44
+\f@ncyO@erh=\skip45
+\f@ncyO@olh=\skip46
+\f@ncyO@orh=\skip47
+\f@ncyO@elf=\skip48
+\f@ncyO@erf=\skip49
+\f@ncyO@olf=\skip50
+\f@ncyO@orf=\skip51
+) (D:\GIT\paper2\paperapit\laarsample.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+
+("C:\Program Files (x86)\MiKTeX 2.8\tex\context\base\supp-pdf.tex"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count92
+\scratchdimen=\dimen108
+\scratchbox=\box26
+\nofMPsegments=\count93
+\nofMParguments=\count94
+\everyMPshowfont=\toks15
+\MPscratchCnt=\count95
+\MPscratchDim=\dimen109
+\MPnumerator=\count96
+\everyMPtoPDFconversion=\toks16
+)
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 22.
+(Font)              <12> on input line 41.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 22.
+(Font)              <8> on input line 41.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 22.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 22.
- (/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
+(Font)              <6> on input line 41.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 41.
+ ("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 22.
+(Font)              <7> on input line 41.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 22.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 22.
+(Font)              <5> on input line 41.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 41.
 
-(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 22.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 41.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 24.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 24.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 43.
 
-Underfull \hbox (badness 2103) in paragraph at lines 113--116
-\OT1/cmr/m/n/10 for solv-ing re-act-ing dis-til-la-tion prob-lems,'' \OT1/cmr/m
-/it/10 J.
+
+Package Fancyhdr Warning: \footskip is too small (0.0pt): 
+ Make it at least 8.39996pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[1{C:/ProgramData/MiKTeX/2.8/pdftex/config/pdftex.map}
+
+
+
+] [2] <PeerCodeReview.jpg, id=16, 354.57469pt x 320.69812pt>
+File: PeerCodeReview.jpg Graphic file (type jpg)
+
+<use PeerCodeReview.jpg> <RepoCentral.jpg, id=17, 399.74344pt x 362.85562pt>
+File: RepoCentral.jpg Graphic file (type jpg)
+ <use RepoCentral.jpg>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3 <D:/GIT/paper2/paperapit/PeerCodeReview.jpg>] <IndependentSubteams.jpg, id=21, 796.47563pt x 552.56438pt>
+File: IndependentSubteams.jpg Graphic file (type jpg)
+
+<use IndependentSubteams.jpg> <ResponsableIntegracion.jpg, id=22, 1041.8925pt x 678.535pt>
+File: ResponsableIntegracion.jpg Graphic file (type jpg)
+
+<use ResponsableIntegracion.jpg>
+Underfull \hbox (badness 10000) in paragraph at lines 286--290
+[]
  []
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
+Overfull \hbox (52.42256pt too wide) in paragraph at lines 286--290
+\OT1/cmr/m/it/10 http://www.perforce.com/perforce/doc.current/manuals/p4web
+ []
 
+[4 <D:/GIT/paper2/paperapit/RepoCentral.jpg> <D:/GIT/paper2/paperapit/IndependentSubteams.jpg> <D:/GIT/paper2/paperapit/
+ResponsableIntegracion.jpg>]
+Underfull \hbox (badness 2103) in paragraph at lines 304--307
+\OT1/cmr/m/n/10 for solv-ing re-act-ing dis-til-la-tion prob-lems,'' \OT1/cmr/m/it/10 J.
+ []
 
-] [2
+[5
 
-] (./laarsample.aux) ) 
+] (D:\GIT\paper2\paperapit\laarsample.aux) ) 
 Here is how much of TeX's memory you used:
- 445 strings out of 495061
- 5203 string characters out of 1182622
- 55404 words of memory out of 3000000
- 3649 multiletter control sequences out of 15000+50000
+ 1273 strings out of 495285
+ 16316 string characters out of 3179869
+ 72136 words of memory out of 3000000
+ 4466 multiletter control sequences out of 15000+200000
  20240 words of font info for 74 fonts, out of 3000000 for 9000
- 28 hyphenation exceptions out of 8191
- 23i,10n,19p,191b,217s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
-cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share
-/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-tex
-live/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/t
-ype1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
-msy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></
-usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on laarsample.pdf (2 pages, 134789 bytes).
+ 14 hyphenation exceptions out of 8191
+ 27i,10n,43p,722b,293s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/t
+ype1/public/amsfonts/cm/cmmib10.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Prog
+ram Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (
+x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on laarsample.pdf (5 pages, 436992 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
+ 54 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

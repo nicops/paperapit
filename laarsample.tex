@@ -142,15 +142,21 @@ There are several DVCS in the market nowadays and most of them are open, free or
 One key aspect of VCS is its performance. It was said previously in this document that the merging process was crucial for a DVCS because it's something that you'll probably have to do several times during a day in a distributed environment and therefore it should be as fast as possible. This is not the case for all DVCS tools. In the following charts\cite{dvcsperfcomparison} we'll compare some of the most widely used DVCS. 
 
 This benchmark simulates a linearly growing repository, being sequentially filled with 4000 files. Each file is modified five times. At the end of the test, the repository had 24,000 revisions. 
+
 \diagrama{dvcs_roundup_plot_commits.jpg}{Check-in Dependence on Repository Growth}
+
 As you can see in the chart above, the time that takes to do a check-in is not constant and differs a lot from one DVCS to another. While Git takes almost nothing to do it no matter the size of the repository, others like darcs take up to 5 seconds.
 
 If you verify the size of the resulting repository on the previous simulation you would find the following:
+
 \diagrama{dvcs_roundup_plot_sizes.jpg}{Repository Size Growth}
+
 Doing the math you will see that the resulting checkout is about 15MBs. SVK needs almost 1.8 GB to store that repository, while the rest of them needs less that 150MB. You might notice that Git has a "saw tooth" shape. That's because Git regulary optimizes its repository. 
 
 The following benchmarks tested how much time it took to add a certain number of files to an empty repository. 
+
 \diagrama{dvcs_roundup_plot_steps1.jpg}{Dependance on Check-in Size}
+
 Once again, Git is the fastest, taking only 300ms to add 2000 files, while SVK needed almost 23 minutes to add the same amount of files. 
 
 \subsection{Commits}
@@ -188,6 +194,7 @@ without getting a performance hit on some operations\cite{linusgit}.
 Systems like SVN have mature tool support and various plugins, but popular DVCS are catching up.
 For these tools most complete interface is the command line, but for the usual operations, 
 there are various visual tools to operate with the repository.
+
 Git, in particular, is based on Linux and originally didn't work work out of the box in Windows, 
 but with Cygwin. 
 Now there is a fork of Git that ports it to windows, but the linux heritage is 
@@ -195,15 +202,16 @@ shown and the installation includes a Bash shell.
 Git also includes a portable GUI written in Tk, invoked with command ``git gui'' 
 but while it is simple and easy to use, it is very incomplete (for example, 
 it doesn't include the ``pull'' operation, among others).
-There are many other third-party GUIs for Git, but none of them has all available operations, in those
-cases, the command line is the only way to do them. One of the most complete GUIs is SmartGit, but 
-requires to purchase a (rather inexpensive) licence for commercial usage. An alternative is Tortoise-Git,
-which is a fork of Tortoise-SVN that shares the same look-and-feel, while supporting most of the 
-Git operations.
 
+There are many other third-party GUIs for Git, but none of them has all available operations nor are them equally mature, 
+in those cases, the command line is the only way to do them. One of the most complete GUIs is SmartGit, but 
+requires to purchase a (rather inexpensive) licence for commercial usage. An alternative for Windows only 
+is Tortoise-Git, which is a fork of Tortoise-SVN that shares the same look-and-feel, while supporting most of the 
+Git operations. There are others GUIs but they are either very uncomplete or aren't really mature and have 
+some kind of bugs (like git-cola) \cite{interfaces}.
 
-Git has git-svn which allows to push and pull from svn repositories, 
-easing transitions.
+There are some tools to interoperate with others VCS, easing transitions.
+Git in particular includes has git-svn which allows to push and pull from svn repositories. 
 
 
 
@@ -324,24 +332,28 @@ Git-SVN Crash Test Course
 DVCS Performance Comparison
 \newblock \emph{http://ldn.linuxfoundation.org/article/dvcs-round-one-system-rule-them-all-part-3}
 
-\bibitem{arnikar1965}  Arnikar, H.J., T.S. Rao and A. Bodne, ``A gas
-chromatographic study of the kinetics of the uncatalysed esterification of
-aceticacid by ethanol,'' {\it J. Chromatog.}, {\bf 47}, 265-268 (1970).
+\bibitem{interfaces}
+Kernel.org wiki Git Interfaces Comparison
+\newblock \emph{https://git.wiki.kernel.org/index.php/Interfaces,\_frontends\_and\_tools\#Graphical\_Interfaces}
 
-\bibitem{Holland1980}  Holland, C.D., {\it Fundamentals of Multicomponent
-Distillation}, McGraw-Hill, New York (1981).
-
-\bibitem{Homatsue1977a}  Komatsue, L., ``Application of the relaxation
-method for solving reacting distillation problems,'' {\it J. Chem. Eng. Japan%
-}, {\bf 10}, 200-205 (1977a).
-
-\bibitem{Komatsue1977b}  Komatsue, L., ``A new method of convergence for
-solving reacting distillation problems,'' {\it J. Chem. Eng. Japan}, {\bf 10}%
-, 292-297 (1977b).
-
-\bibitem{Komatsue1987}  Komatsue, L. and J. Simand, ``Simulation of reactive
-distillation by the inside-outside method,'' {\it Proc. 37th Chem. Eng. Conf.%
-}, Montreal, Canada, 365-367 (1987).
+% \bibitem{arnikar1965}  Arnikar, H.J., T.S. Rao and A. Bodne, ``A gas
+% chromatographic study of the kinetics of the uncatalysed esterification of
+% aceticacid by ethanol,'' {\it J. Chromatog.}, {\bf 47}, 265-268 (1970).
+% 
+% \bibitem{Holland1980}  Holland, C.D., {\it Fundamentals of Multicomponent
+% Distillation}, McGraw-Hill, New York (1981).
+% 
+% \bibitem{Homatsue1977a}  Komatsue, L., ``Application of the relaxation
+% method for solving reacting distillation problems,'' {\it J. Chem. Eng. Japan%
+% }, {\bf 10}, 200-205 (1977a).
+% 
+% \bibitem{Komatsue1977b}  Komatsue, L., ``A new method of convergence for
+% solving reacting distillation problems,'' {\it J. Chem. Eng. Japan}, {\bf 10}%
+% , 292-297 (1977b).
+% 
+% \bibitem{Komatsue1987}  Komatsue, L. and J. Simand, ``Simulation of reactive
+% distillation by the inside-outside method,'' {\it Proc. 37th Chem. Eng. Conf.%
+% }, Montreal, Canada, 365-367 (1987).
 \end{thebibliography}
 
 \end{document}

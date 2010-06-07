@@ -137,7 +137,21 @@ The push process refers to taking all the changes previously selected and adding
 \subsection{Pulling}
 Pull is the opposite action of push and it is the combination of two other commands, ``fetch'' and ``merge''. The fetch command takes the changes from a peer's repository and copies them to the local repository. After that, the merge process combines the changes you've just downloaded with the ones on your local repository. You can do those two actions separately or altogether by using the ``pull'' command.
 
-\section{COMPARISON}
+\section{Comparison}
+There are several DVCS in the market nowadays and most of them are open, free or have a free license while not being used in comercial environments. While most of them have very similar features, the one that has the greatest number if features is Git with over 150 commands out-of-the-box but at the same time it is the one with the steepest learning curve because it is very different from SVN, which is probably the most widely used VCS. 
+One key aspect of VCS is its performance. It was said previously in this document that the merging process was crucial for a DVCS because it's something that you'll probably have to do several times during a day in a distributed environment and therefore it should be as fast as possible. This is not the case for all DVCS tools. In the following charts\cite{dvcsperfcomparison} we'll compare some of the most widely used DVCS. 
+
+This benchmark simulates a linearly growing repository, being sequentially filled with 4000 files. Each file is modified five times. At the end of the test, the repository had 24,000 revisions. 
+\diagrama{dvcs_roundup_plot_commits.jpg}{Check-in Dependence on Repository Growth}
+As you can see in the chart above, the time that takes to do a check-in is not constant and differs a lot from one DVCS to another. While Git takes almost nothing to do it no matter the size of the repository, others like darcs take up to 5 seconds.
+
+If you verify the size of the resulting repository on the previous simulation you would find the following:
+\diagrama{dvcs_roundup_plot_sizes.jpg}{Repository Size Growth}
+Doing the math you will see that the resulting checkout is about 15MBs. SVK needs almost 1.8 GB to store that repository, while the rest of them needs less that 150MB. You might notice that Git has a "saw tooth" shape. That's because Git regulary optimizes its repository. 
+
+The following benchmarks tested how much time it took to add a certain number of files to an empty repository. 
+\diagrama{dvcs_roundup_plot_steps1.jpg}{Dependance on Check-in Size}
+Once again, Git is the fastest, taking only 300ms to add 2000 files, while SVK needed almost 23 minutes to add the same amount of files. 
 
 \subsection{Commits}
 In a DVCS the nature of the commits is different to centralized VCS, since commits are made in the local repository only. 
@@ -303,10 +317,12 @@ http://www.perforce.com/perforce/doc.current/manuals/p4web
 }
 
 \bibitem{svnmerging}
-\newblock \emph{ Git-SVN Crash Course}
-
+Git-SVN Crash Test Course
 \newblock \emph{http://git.or.cz/course/svn.html\#merge}
 
+\bibitem{dvcsperfcomparison}
+DVCS Performance Comparison
+\newblock \emph{http://ldn.linuxfoundation.org/article/dvcs-round-one-system-rule-them-all-part-3}
 
 \bibitem{arnikar1965}  Arnikar, H.J., T.S. Rao and A. Bodne, ``A gas
 chromatographic study of the kinetics of the uncatalysed esterification of

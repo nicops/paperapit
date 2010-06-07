@@ -49,7 +49,19 @@
 \maketitle
 
 \abstract
-Estas instrucciones se presentan para ayudar a los autores a preparar su trabajo en el formato definitivo correspondiente a la materia Arquitecturas de Proyectos de IT. El resumen no debe exceder las 200 palabras.
+%Estas instrucciones se presentan para ayudar a los autores a preparar su trabajo en el formato definitivo 
+%correspondiente a la materia Arquitecturas de Proyectos de IT. El resumen no debe exceder las 200 palabras.
+%
+%
+Distributed Version Control Systems, as opposed to Centralized Version Control Systems, 
+are increasingly popular, being today a serious option in the election of a Version
+Control System.
+The goal of this paper is to explain what DVCS are, based on the distributed system Git, 
+and compare them to Centralized Version Control Systems,
+highlighting the differences, advantages and disadvantages of both approachs in various 
+contexts, in a both a conceptual level, and a practical level of actual VCS; ultimately 
+evaluating when to use or not Distributed Version Control Systems. 
+%aprox. 60 palabras fue eso
 \endabstract
 
 %TCIMACRO{\TeXButton{keywords}{\keywords}}
@@ -65,21 +77,14 @@ Most software projects use Version Control Systems (VCS) to manage revisions
 of source code. 
 Version Control Systems traditionally track the whole history of the
 source code in a central server that everyone that can access. 
-%This central server contains all the changes and branches of the code and 
-%the users that can read the versions or commit changes have to connect 
-%to this repository. 
 Users need to access this central server to work with their VCS.
 A modern, different approach of doing revision control is using a \emph{Distributed} Version Control System (DVCS).
 In these systems, there is no central server that contains the history and tracks changes,
 instead everyone has a copy of the full repository with the complete history.
-Given the lack of a centralized server they are also called De-centralized Version Control Systems.
+Given the lack of a centralized server they are also called De-centralized Version Control Systems. 
 
-In this paper we're going explain what DVCS are, based on the distributed system Git, 
-and compare them to centralized Version Control Systems,
-highlighting the differences, advantages and disadvantages of both approachs in various 
-contexts, in a both a conceptual level, and a practical level of actual VCS; ultimately 
-evaluating when to use or not Distributed Version Control Systems. 
-
+As stated in the abstract, we're going to do an overview of DVCS and comparison, based on the DVCS Git. 
+First we're going to have a quick look to the history of DVCS. Then there is a review of the overall architecture of DVCS, and then a comparison to centralized version control systems. Some workflows enabled by the use of Distributed Version Control Systems are described, and finally a general evaluation of Git, DVCS in general, and whether it is or not a good idea to switch to them. 
 
 \section{DVCS HISTORY}
 

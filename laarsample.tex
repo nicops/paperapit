@@ -155,28 +155,7 @@ This logic is similar to centralized VCS, but we must keep in mind that we could
 \emph{Pull:} 
 Pull is the opposite action of push and it is the combination of two other commands, ``fetch'' and ``merge''. The fetch command takes the changes from a peer's repository and copies them to the local repository. After that, the merge process combines the changes you've just downloaded with the ones on your local repository. You can do those two actions separately or altogether by using the ``pull'' command.
 
-\section{Comparison}
-There are several DVCS in the market nowadays and most of them are open, free or have a free license while not being used in comercial environments. While most of them have very similar features, the one that has the greatest number if features is Git with over 150 commands out-of-the-box but at the same time it is the one with the steepest learning curve because it is very different from SVN, which is probably the most widely used VCS. 
-One key aspect of VCS is its performance. It was said previously in this document that the merging process was crucial for a DVCS because it's something that you'll probably have to do several times during a day in a distributed environment and therefore it should be as fast as possible. This is not the case for all DVCS tools. In the following charts\cite{dvcsperfcomparison} we'll compare some of the most widely used DVCS. 
-
-This benchmark simulates a linearly growing repository, being sequentially filled with 4000 files. Each file is modified five times. At the end of the test, the repository had 24,000 revisions. 
-
-\diagrama{dvcs_roundup_plot_commits.jpg}{Check-in Dependence on Repository Growth}
-
-As you can see in the chart above, the time that takes to do a check-in is not constant and differs a lot from one DVCS to another. While Git takes almost nothing to do it no matter the size of the repository, others like darcs take up to 5 seconds.
-
-If you verify the size of the resulting repository on the previous simulation you would find the following:
-
-\diagrama{dvcs_roundup_plot_sizes.jpg}{Repository Size Growth}
-
-Doing the math you will see that the resulting checkout is about 15MBs. SVK needs almost 1.8 GB to store that repository, while the rest of them needs less that 150MB. You might notice that Git has a "saw tooth" shape. That's because Git regulary optimizes its repository. 
-
-The following benchmarks tested how much time it took to add a certain number of files to an empty repository. 
-
-\diagrama{dvcs_roundup_plot_steps1.jpg}{Dependance on Check-in Size}
-
-Once again, Git is the fastest, taking only 300ms to add 2000 files, while SVK needed almost 23 minutes to add the same amount of files. 
-
+\section{COMPARISON BETWEEN CENTRALIZED AND DISTRIBUTED}
 \subsection{Commits}
 In a DVCS the nature of the commits is different to centralized VCS, since commits are made in the local repository only. 
 Commiting in centralized VCS means ``to share the change with everyone that queries the centralized server'' while in a 
@@ -289,7 +268,27 @@ It is also possible to have an automatic integration manager. This server will a
 %----------------------------------------------------------------------
 % SECTION IV: Then, why should I use it in my project?
 %----------------------------------------------------------------------
+\section{DVCS COMPARISONS}
+There are several DVCS in the market nowadays and most of them are open, free or have a free license while not being used in comercial environments. While most of them have very similar features, the one that has the greatest number if features is Git with over 150 commands out-of-the-box but at the same time it is the one with the steepest learning curve because it is very different from SVN, which is probably the most widely used VCS. 
+One key aspect of VCS is its performance. It was said previously in this document that the merging process was crucial for a DVCS because it's something that you'll probably have to do several times during a day in a distributed environment and therefore it should be as fast as possible. This is not the case for all DVCS tools. In the following charts\cite{dvcsperfcomparison} we'll compare some of the most widely used DVCS. 
 
+This benchmark simulates a linearly growing repository, being sequentially filled with 4000 files. Each file is modified five times. At the end of the test, the repository had 24,000 revisions. 
+
+\diagrama{dvcs_roundup_plot_commits.jpg}{Check-in Dependence on Repository Growth}
+
+As you can see in the chart above, the time that takes to do a check-in is not constant and differs a lot from one DVCS to another. While Git takes almost nothing to do it no matter the size of the repository, others like darcs take up to 5 seconds.
+
+If you verify the size of the resulting repository on the previous simulation you would find the following:
+
+\diagrama{dvcs_roundup_plot_sizes.jpg}{Repository Size Growth}
+
+Doing the math you will see that the resulting checkout is about 15MBs. SVK needs almost 1.8 GB to store that repository, while the rest of them needs less that 150MB. You might notice that Git has a "saw tooth" shape. That's because Git regulary optimizes its repository. 
+
+The following benchmarks tested how much time it took to add a certain number of files to an empty repository. 
+
+\diagrama{dvcs_roundup_plot_steps1.jpg}{Dependance on Check-in Size}
+
+Once again, Git is the fastest, taking only 300ms to add 2000 files, while SVK needed almost 23 minutes to add the same amount of files. 
 
 %----------------------------------------------------------------------
 % SECTION VII: Conclusions
@@ -302,19 +301,22 @@ It is also possible to have an automatic integration manager. This server will a
 %\subsection{Should I use it in my project?}
 Does everybody need these features? Speed, offline working, 
 and easyness of branching/merging are nice features even if you work simply pulling 
-and pushing changes against a central repository and not every peer out there. In some 
-projects and with some tools, the advantage of going distributed may not be clear. 
-For starters, in many closed source projects there is no need nor desire to have anything
+and pushing changes against a central repository and not every peer out there. 
+
+In some 
+projects and with some tools, though, the advantage of going distributed may not be clear. 
+In many closed source projects there is no need nor desire to have anything
 other than centralized repositories, and while you can use a DVCS with a centralized
-repository, there may not be enough to gain to balance the cost of changing. Distributed 
-versioning \emph{is} more complex, and there is a ``conceptual overhead'' in the usage 
+repository, there may not be enough to gain to balance the cost of changing. 
+
+Distributed versioning \emph{is} more complex, and there is a ``conceptual overhead'' in the usage 
 of it, even if most of the time you can ignore most features and use just what you need 
 (even for one person proyects, Git and Mercurial may be easier to use than SVN).
 
-The general lack of maturity in the tools is also a disadvantage, since the most flexible
+The general lack of completness in the tools is also a disadvantage, since the most flexible
 way of working is the command-line interface. This makes it a bit harder to use because there 
 are many commands, and they have a lot of options and some problems may not have an intuitive 
-solution. There is more to learn and to use.
+solution. There is more to learn and to use, even though some GUIs may help with these issues.
 
 If there is no need to use anything but a centralized workflow, as in Continous Integration 
 workflows, there might be little justification to use DVCS because changes are supposed to be 
@@ -323,8 +325,6 @@ integrated quickly in the main repository.
 Beside these general warnings, Distributed VCS is simply more powerful and flexible than Centralized CVS.
 Everything that can be done with a centralized schema can be done in a distributed fashion, but the inverse
 is not true. 
-
-
 
 
 

@@ -1,33 +1,9 @@
-%======================================================================
-% DVCS paper!
-%======================================================================
-\documentclass[%
-	%draft,
-	%submission,
-	%compressed,
-	final,
-	%
-	%technote,
-	%internal,
-	%submitted,
-	%inpress,
-	%reprint,
-	%
-	%titlepage,
-	notitlepage,
-	%anonymous,
-	narroweqnarray,
-	inline,
-	twoside,
-        %invited,
-	]{ieee}
-
-
-\setlength{\columnsep}{5mm}
-
-\newcommand{\latexiie}{\LaTeX2{\Large$_\varepsilon$}}
-\usepackage{graphicx}
-
+%\input{tcilatex}
+\documentstyle[laarstyle,graphicx,fancyhdr]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TCIDATA{Created=Mon Jun 26 12:16:44 2000}
+%TCIDATA{LastRevised=Fri Feb 21 17:20:01 2003}
+%TCIDATA{Language=American English}
 
 \newcommand{\diagrama}[2]{
     \begin{figure}[h]
@@ -38,122 +14,86 @@
     \end{figure}
 }
 
-%\usepackage{ieeetsp}	% if you want the "trans. sig. pro." style
-%\usepackage{ieeetc}	% if you want the "trans. comp." style
-%\usepackage{ieeeimtc}	% if you want the IMTC conference style
+%\affiliation{
+% \dag Universidad Tecnol\'{o}gica Nacional, Facultad Regional Buenos Aires \\
+% {\ demianalonso@gmail.com} \\
+% \ddag Universidad Tecnol\'{o}gica Nacional, Facultad Regional Buenos Aires \\
+% {\ bbonanno@gmail.com} \\
+% \dag \dag Universidad Tecnol\'{o}gica Nacional, Facultad Regional Buenos Aires \\
+% {\ nicolascalligaro@gmail.com} \\
+% \ddag \ddag Universidad Tecnol\'{o}gica Nacional, Facultad Regional Buenos Aires \\
+% {\ nicolas.perez.santoro@gmail.com }
+% }
 
-% Use the `endfloat' package to move figures and tables to the end
-% of the paper. Useful for `submission' mode.
-%\usepackage {endfloat}
+\affiliation{
+ \dag {\ demianalonso@gmail.com} \\
+ \ddag {\ bbonanno@gmail.com} \\
+ \dag \dag  {\ nicolascalligaro@gmail.com} \\
+ \ddag \ddag  {\ nicolas.perez.santoro@gmail.com }
+ }
 
-% Use the `times' package to use Helvetica and Times-Roman fonts
-% instead of the standard Computer Modern fonts. Useful for the 
-% IEEE Computer Society transactions.
-%\usepackage{times}
-% (Note: If you have the commercial package `mathtime,' (from 
-% y&y (http://www.yandy.com), it is much better, but the `times' 
-% package works too). So, if you have it...
-%\usepackage {mathtime}
+\pagestyle{fancy}
+ 
+\fancyhead{}
 
-% for any plug-in code... insert it here. For example, the CDC style...
-%\usepackage{ieeecdc}
+\renewcommand{\headrulewidth}{0pt}
+\chead{\fancyplain{}{\emph{Universidad Tecnol\'{o}gica Nacional, Facultad Regional Buenos Aires}}}
 
+
+%\input{tcilatex}
 \begin{document}
 
-%----------------------------------------------------------------------
-% Title Information, Abstract and Keywords
-%----------------------------------------------------------------------
-\title[Distributed Version Control Systems]{%
-       Distributed Version Control Systems}
+\title{An Overview of Distributed Version Control Systems}
+\author{Demian Alonso$^{\dag }$, Bruno Bonnano$^{\ddag }$, Nicol\'{a}s Calligaro$^{\dag \dag }$ and Nicol\'{a}s Perez Santoro$^{\ddag \ddag }$}
+%\author{Demian Alonso, Bruno Bonnano, Nicol\'{a}s Calligaro and Nicol\'{a}s Perez Santoro}
+\maketitle
 
-% format author this way for journal articles.
-% MAKE SURE THERE ARE NO SPACES BEFORE A \member OR \authorinfo
-% COMMAND (this also means `don't break the line before these
-% commands).
-\author[GRUPOAPIT]{Demian Alonso,
-\and{} Bruno Bonnano,
-\and{} Nicol\'{a}s Calligaro
-\and{}and Nicol\'{a}s Perez Santoro
-}
+\abstract
+%Estas instrucciones se presentan para ayudar a los autores a preparar su trabajo en el formato definitivo 
+%correspondiente a la materia Arquitecturas de Proyectos de IT. El resumen no debe exceder las 200 palabras.
+%
+%
+Distributed Version Control Systems, as opposed to Centralized Version Control Systems, 
+are increasingly popular, being today a serious option in the election of a Version
+Control System.
+The goal of this paper is to explain what DVCS are, based on the distributed system Git, 
+and compare them to Centralized Version Control Systems,
+highlighting the differences, advantages and disadvantages of both approachs in various 
+contexts, in a both a conceptual level, and a practical level of actual VCS; ultimately 
+evaluating when to use or not Distributed Version Control Systems. 
+%aprox. 60 palabras fue eso
+\endabstract
 
-\journal{Universidad Tecnol\'{o}gica Nacional, Facultad Regional Buenos Aires}
-%\titletext{, VOL.\ 46, NO.\ 6, DECEMBER\ 1997}
-%\ieeecopyright{0018--9456/97\$10.00 \copyright\ 1997 IEEE}
-%\lognumber{xxxxxxx}
-%\pubitemident{S 0018--9456(97)09426--6}
-%\loginfo{Manuscript received September 27, 1997.}
-\firstpage{1}
+%TCIMACRO{\TeXButton{keywords}{\keywords}}
+%BeginExpansion
+\keywords%
+GIT, SVN, DVCS, MERCURIAL
+\endkeywords
 
-%\confplacedate{Buenos Aires, Argentina, April 18, 2010}
+\section{INTRODUCTION}
 
-\maketitle               
-
-\begin{abstract} 
-Abstract to be done
-\end{abstract}
-
-\begin{keywords}
-to be done
-\end{keywords}
-
-%----------------------------------------------------------------------
-% SECTION I: Introduction
-%----------------------------------------------------------------------
-\section{Introduction}
-
-% Un detalle que yo corregiría es la Introducción, creo que se  mezclan cosas con diferente 
-% nivel de detalle, entonces propondría hacer una intro de muy alto nivel, que se concentre 
-% en contar el problema y describir el objetivo del artículo.
-% Por otro lado la reseña histórica iría en una sección aparte.
-
-\PARstart Most software projects use Version Control Systems (VCS) to manage revisions
+Most software projects use Version Control Systems (VCS) to manage revisions
 of source code. 
 Version Control Systems traditionally track the whole history of the
 source code in a central server that everyone that can access. 
-%This central server contains all the changes and branches of the code and 
-%the users that can read the versions or commit changes have to connect 
-%to this repository. 
 Users need to access this central server to work with their VCS.
 A modern, different approach of doing revision control is using a \emph{Distributed} Version Control System (DVCS).
 In these systems, there is no central server that contains the history and tracks changes,
 instead everyone has a copy of the full repository with the complete history.
-Given the lack of a centralized server they are also called De-centralized Version Control Systems.
+Given the lack of a centralized server they are also called De-centralized Version Control Systems. 
 
-In this paper we're going explain what DVCS are, based on the distributed system Git, 
-and compare them to centralized Version Control Systems,
-highlighting the differences, advantages and disadvantages of both approachs in various 
-contexts, in a both a conceptual level, and a practical level of actual VCS; ultimately 
-evaluating when to use or not Distributed Version Control Systems. 
+As stated in the abstract, we're going to do an overview of DVCS and comparison, based on the DVCS Git. 
+First we're going to have a quick look to the history of DVCS. Then there is a review of the overall architecture of DVCS, and then a comparison to centralized version control systems. Some workflows enabled by the use of Distributed Version Control Systems are described, and finally a general evaluation of Git, DVCS in general, and whether it is or not a good idea to switch to them. 
 
-% Explain DVCS, particulary GIT
-% Comparison between DVCS and CVCS
-% When we should or we shouldn't use it.
-
-
-
-%Vamos a contar cuando surgió esta tecnología y sus principales 
-%exponentes en la actualidad. Vamos a basarnos en GIT pero hay muchas 
-%similitudes con otros sistemas de versionado distribuidos como Mercurial. 
-%Un poco se contará las diferencias fundamentales entre las herramientas de 
-%versionado centralizadas y distribuidas, simplemente nombrando las diferencias 
-%pero no explicándolas. 
-
-
-%La idea del paper sería contar las ventajas que puede 
-%tener este esquema dentro de un ambiente enterprise de código cerrado, en contraste 
-%a un ambiente open source donde el esquema distribuido tiene incluso más sentido.
-
-%Ejemplo de cita \cite{linusgit} 
-
-\section{DVCS history}
+\section{DVCS HISTORY}
 
 The concept of distributed repositories came up first on the commercial product 
-Sun TeamWare (\emph{good citation needed}), designed by Larry McVoy who later went 
+Sun TeamWare. Larry McVoy, who worked on Sun Teamware, later went 
 on to design BitKeeper, another commercial VCS which expanded on those ideas. 
 BitKeeper was used from 2002 to 2005 to manage the Linux kernel source until 
 the license to use BitKeeper was finished. 
 To replace the use of BitKeeper in the Linux kernel, two projects started, Git (by
-Linus Torvalds \cite{linusgit} and Mercurial, both now mature DVCS. 
+Linus Torvalds \cite{linusgit}) and Mercurial, both now mature DVCS. 
 Other open source DVCS in use today are Bazaar, 
 developed by Canonical Ltd. and used to maintain the Ubuntu codebase, and Darcs, based on 
 the idea of tracking only patches and not versions.
@@ -166,9 +106,9 @@ largely similar, with most commands having the same names in both tools.
 %----------------------------------------------------------------------
 % SECTION II: Architecture
 %----------------------------------------------------------------------
-\section{Architecture}
+\section{ARCHITECTURE}
 
-A DVCS has many features that makes it perfect for distributed and non-distributed developments. Almost every feature is based on the fact that DVCS is distributed instead of centralized and therefore if you work distributed then merges would happen on a regular basis and they should be as fast and easy as possible, providing developers with a whole new set of tools and relieve them almost completely from having to code according to the rules required to work with a centralized CVS like system. 
+A DVCS has many features that makes it perfect for distributed and non-distributed developments. Almost every feature is based on the fact that DVCS is distributed instead of centralized and therefore if you work distributed then merges would happen on a regular basis and they should be as fast and easy as possible, providing developers with a whole new set of tools that relieve them almost completely from having to code according to the rules required to work with a centralized CVS like system. 
 
 \subsection{Distributed}
 The idea behind being distributed means that no server has the full content of a repository but rather a clone of it with the changes that a particular developer has commited. This allows users to have their own clone on their own computer and work in a offline environment while being able to version their changes. It also makes the whole versioning system faster.
@@ -187,30 +127,35 @@ Security on DVCS is based on the "circle of trust" model which implies that you 
 
 \subsection{Small, Coherent and Logical Commits}
 Due to the fact that you can select very specific pieces of your code to build a commit you can make commits very small and atomic making the merging process more easy by selecting only those commits that won't break your code. This technique of only selecting the changes that you want is called ``cherry-picking'' and it has the advantage of using the revision tree as a 
-series of \emph{changesets} or \emph{patches} instead of just a series of static versions. The distributed model enhances this by allowing to make commits whenever you want to your local copy without breaking anyone else's code. Many little commits can be grouped as a bigger, conceptual commit in the case that you need those changes to occur at the same time and not individually. 
+series of \emph{changesets} or \emph{patches} instead of just a series of static versions. 
+
+The distributed model enhances this by allowing to make commits whenever you want to your local copy without breaking anyone else's code. Many little commits can be grouped as a bigger, conceptual commit in the case that you need those changes to occur at the same time and not individually. 
 
 \subsection{Tagging and Branching}
-Most DVCS allows the user to attach an arbitrary description the a tag so you can store the whole release announcements along with the tag of that version. Moreover, as with the commit, the identity of the user who made the tag is stored and can be securely verified by a cryptographical PGP signature that is embedded on the tag
+Most DVCS allows the user to attach an arbitrary description the a tag so you can store the whole release announcements along with the tag of that version. Moreover, as with the commit, the identity of the user who made the tag is stored and can be securely verified by a cryptographical PGP signature that is embedded on the tag.
 
 \subsection{Merging}
 The merging process has two possible scenarios:
+
 \emph{Fast-forward merge:} The changes has been applied to only one of the branches and therefore those changes are replayed to the other branch automatically.
+
 \emph{Three-way merge:} When changes exists on both branches, the DVCS tool will try to automatically merge them and if any conflict arises then it reports it to you and let you resolve them. 
 The merging process\cite{svnmerging} between branches preserves all the history of 
 both branches on many DVCS tools.
 
 \subsection{Pushing and pulling}
-When we want to share our work with the rest of the team we have two basic commands, 
-\emph{push} and \emph{pull}.
+When we want to share our work with the rest of the team we have two basic commands:
+%\emph{push} and \emph{pull}.
 
-\subsection{Pushing}
-The push process refers to taking all the changes previously selected and adding them to the repository of another peer. In practice we usually don't do this because we shouldn't push changes to a peer's working copy of the repository so the push process is usually done agains a ``central repository'' where all the team make their pushes too. This logic is similar to centralized VCS, but we must keep in mind that we could have a lot of ``central repositories'' for different parts of our project or even for different parts of the team. Testing could have its own central repository, while development has another copy of it and changes could be pushed among them very easily.
+\emph{Push:}
+The push process refers to taking all the changes previously selected and adding them to the repository of another peer. In practice we usually don't do this because we shouldn't push changes to a peer's working copy of the repository so the push process is usually done agains a ``central repository'' where all the team make their pushes too. 
 
-\subsection{Pulling}
+This logic is similar to centralized VCS, but we must keep in mind that we could have a lot of ``central repositories'' for different parts of our project or even for different parts of the team. Testing could have its own central repository, while development has another copy of it and changes could be pushed among them very easily.
+
+\emph{Pull:} 
 Pull is the opposite action of push and it is the combination of two other commands, ``fetch'' and ``merge''. The fetch command takes the changes from a peer's repository and copies them to the local repository. After that, the merge process combines the changes you've just downloaded with the ones on your local repository. You can do those two actions separately or altogether by using the ``pull'' command.
 
-\section{Comparison}
-
+\section{COMPARISON BETWEEN CENTRALIZED AND DISTRIBUTED}
 \subsection{Commits}
 In a DVCS the nature of the commits is different to centralized VCS, since commits are made in the local repository only. 
 Commiting in centralized VCS means ``to share the change with everyone that queries the centralized server'' while in a 
@@ -246,16 +191,30 @@ without getting a performance hit on some operations\cite{linusgit}.
 Systems like SVN have mature tool support and various plugins, but popular DVCS are catching up.
 For these tools most complete interface is the command line, but for the usual operations, 
 there are various visual tools to operate with the repository.
+
 Git, in particular, is based on Linux and originally didn't work work out of the box in Windows, 
-but with Cygwin. Now there is a fork of Git that ports it to windows, but 
-Mercurial is much more portable, but some tools are also incomplete, like hg-subversion (a tool 
-to interoperate with svn). Git has git-svn which allows to push and pull from svn repositories, 
-easing transitions.
+but with Cygwin. 
+Now there is a fork of Git that ports it to windows, but the linux heritage is 
+shown and the installation includes a Bash shell. 
+Git also includes a portable GUI written in Tk, invoked with command ``git gui'' 
+but while it is simple and easy to use, it is very incomplete (for example, 
+it doesn't include the ``pull'' operation, among others).
 
+There are many other third-party GUIs for Git, but none of them has all available operations nor are them equally mature, 
+in those cases, the command line is the only way to do them. One of the most complete GUIs is SmartGit, but 
+requires to purchase a (rather inexpensive) licence for commercial usage. An alternative for Windows only 
+is Tortoise-Git, which is a fork of Tortoise-SVN that shares the same look-and-feel, while supporting most of the 
+Git operations. There are others GUIs but they are either very uncomplete or aren't really mature and have 
+some kind of bugs (like git-cola) \cite{interfaces}.
 
+There are some tools to interoperate with others VCS, easing transitions.
+Git in particular includes has git-svn which allows to push and pull from svn repositories. 
+
+Mercurial has similar tools, incluing hg-subversion to interact with svn repositories, and Tortoise-Hg which is
+the equivalent of Tortoise-Git.
 %----------------------------------------------------------------------
 
-\section{Possible workflows}
+\section{POSSIBLE WORKFLOWS}
 
 As mentioned before, this tool allows for differents workflows that just weren't 
 possible before.
@@ -307,9 +266,34 @@ It is also possible to have an automatic integration manager. This server will a
 
 
 %----------------------------------------------------------------------
+% SECTION IV: Then, why should I use it in my project?
+%----------------------------------------------------------------------
+\section{DVCS COMPARISONS}
+There are several DVCS in the market nowadays and most of them are open, free or have a free license while not being used in comercial environments. While most of them have very similar features, the one that has the greatest number if features is Git with over 150 commands out-of-the-box but at the same time it is the one with the steepest learning curve because it is very different from SVN, which is probably the most widely used VCS. 
+One key aspect of VCS is its performance. It was said previously in this document that the merging process was crucial for a DVCS because it's something that you'll probably have to do several times during a day in a distributed environment and therefore it should be as fast as possible. This is not the case for all DVCS tools. In the following charts\cite{dvcsperfcomparison} we'll compare some of the most widely used DVCS. 
+
+This benchmark simulates a linearly growing repository, being sequentially filled with 4000 files. Each file is modified five times. At the end of the test, the repository had 24,000 revisions. 
+
+\diagrama{dvcs_roundup_plot_commits.jpg}{Check-in Dependence on Repository Growth}
+
+As you can see in the chart above, the time that takes to do a check-in is not constant and differs a lot from one DVCS to another. While Git takes almost nothing to do it no matter the size of the repository, others like darcs take up to 5 seconds.
+
+If you verify the size of the resulting repository on the previous simulation you would find the following:
+
+\diagrama{dvcs_roundup_plot_sizes.jpg}{Repository Size Growth}
+
+Doing the math you will see that the resulting checkout is about 15MBs. SVK needs almost 1.8 GB to store that repository, while the rest of them needs less that 150MB. You might notice that Git has a "saw tooth" shape. That's because Git regulary optimizes its repository. 
+
+The following benchmarks tested how much time it took to add a certain number of files to an empty repository. 
+
+\diagrama{dvcs_roundup_plot_steps1.jpg}{Dependance on Check-in Size}
+
+Once again, Git is the fastest, taking only 300ms to add 2000 files, while SVK needed almost 23 minutes to add the same amount of files. 
+
+%----------------------------------------------------------------------
 % SECTION VII: Conclusions
 %----------------------------------------------------------------------
-\section{Conclusion}
+\section{CONCLUSION}
 
 %Si mi proyecto es apto para aplicar la herramienta por qué debería utilizarla en 
 %vez de utilizar CVS/SVN/otros, mostrando los costos y ventajas y desventajas,
@@ -317,19 +301,22 @@ It is also possible to have an automatic integration manager. This server will a
 %\subsection{Should I use it in my project?}
 Does everybody need these features? Speed, offline working, 
 and easyness of branching/merging are nice features even if you work simply pulling 
-and pushing changes against a central repository and not every peer out there. In some 
-projects and with some tools, the advantage of going distributed may not be clear. 
-For starters, in many closed source projects there is no need nor desire to have anything
+and pushing changes against a central repository and not every peer out there. 
+
+In some 
+projects and with some tools, though, the advantage of going distributed may not be clear. 
+In many closed source projects there is no need nor desire to have anything
 other than centralized repositories, and while you can use a DVCS with a centralized
-repository, there may not be enough to gain to balance the cost of changing. Distributed 
-versioning \emph{is} more complex, and there is a ``conceptual overhead'' in the usage 
+repository, there may not be enough to gain to balance the cost of changing. 
+
+Distributed versioning \emph{is} more complex, and there is a ``conceptual overhead'' in the usage 
 of it, even if most of the time you can ignore most features and use just what you need 
 (even for one person proyects, Git and Mercurial may be easier to use than SVN).
 
-The general lack of maturity in the tools is also a disadvantage, since the most flexible
+The general lack of completness in the tools is also a disadvantage, since the most flexible
 way of working is the command-line interface. This makes it a bit harder to use because there 
 are many commands, and they have a lot of options and some problems may not have an intuitive 
-solution. There is more to learn and to use.
+solution. There is more to learn and to use, even though some GUIs may help with these issues.
 
 If there is no need to use anything but a centralized workflow, as in Continous Integration 
 workflows, there might be little justification to use DVCS because changes are supposed to be 
@@ -341,48 +328,50 @@ is not true.
 
 
 
-
-%----------------------------------------------------------------------
-\section{Glossary}
-{\renewcommand{\labelitemi}{$\triangleright$}
-\begin{itemize}
-\item CVS
-\item Centralized CVS
-\item Distributed/de-centralized CVS
-\end{itemize}
-
-\begin{thebibliography}{1}
-
-% \bibitem{lamport}
-% Leslie Lamport,
-% \newblock {\em A Document Preparation System: {\LaTeX} User's Guide and
-%   Reference Manual},
-% \newblock Addison-Wesley, Reading, MA, 2nd edition, 1994.
-% \newblock Be sure to get the updated version for \latexiie!
-% 
-% \bibitem{goossens}
-% Michel Goossens, Frank Mittelbach, and Alexander Samarin,
-% \newblock {\em The {\LaTeX} Companion},
-% \newblock Addison-Wesley, Reading, MA, 1994.
+\begin{thebibliography}{9}
 
 \bibitem{linusgit}
-Linus Torvalds
-\newblock \emph{Google Talk presentation on Git}
+Linus Torvalds \emph{Google Talk presentation on Git}
 
 \bibitem{perforceclientspec}
 Perforce documentation on ``Editing Client Specs''
-
-\newblock \emph{
-http://www.perforce.com/perforce/doc.current/manuals/p4web
-/help/editclient.html
+\emph{
+http://www.perforce.com/perforce/doc.current/
+manuals/p4web/help/editclient.html
 }
 
 \bibitem{svnmerging}
-\newblock \emph{ Git-SVN Crash Course}
+Git-SVN Crash Test Course
+\emph{http://git.or.cz/course/svn.html\#merge}
 
-\newblock \emph{http://git.or.cz/course/svn.html\#merge}
+\bibitem{dvcsperfcomparison}
+DVCS Performance Comparison
+\emph{http://ldn.linuxfoundation.org/article/
+dvcs-round-one-system-rule-them-all-part-3}
+
+\bibitem{interfaces}
+Kernel.org wiki Git Interfaces Comparison
+\emph{https://git.wiki.kernel.org/index.php/
+Interfaces,\_frontends\_and\_tools\#Graphical\_Interfaces}
+
+% \bibitem{arnikar1965}  Arnikar, H.J., T.S. Rao and A. Bodne, ``A gas
+% chromatographic study of the kinetics of the uncatalysed esterification of
+% aceticacid by ethanol,'' {\it J. Chromatog.}, {\bf 47}, 265-268 (1970).
+% 
+% \bibitem{Holland1980}  Holland, C.D., {\it Fundamentals of Multicomponent
+% Distillation}, McGraw-Hill, New York (1981).
+% 
+% \bibitem{Homatsue1977a}  Komatsue, L., ``Application of the relaxation
+% method for solving reacting distillation problems,'' {\it J. Chem. Eng. Japan%
+% }, {\bf 10}, 200-205 (1977a).
+% 
+% \bibitem{Komatsue1977b}  Komatsue, L., ``A new method of convergence for
+% solving reacting distillation problems,'' {\it J. Chem. Eng. Japan}, {\bf 10}%
+% , 292-297 (1977b).
+% 
+% \bibitem{Komatsue1987}  Komatsue, L. and J. Simand, ``Simulation of reactive
+% distillation by the inside-outside method,'' {\it Proc. 37th Chem. Eng. Conf.%
+% }, Montreal, Canada, 365-367 (1987).
 \end{thebibliography}
-
-%----------------------------------------------------------------------
 
 \end{document}

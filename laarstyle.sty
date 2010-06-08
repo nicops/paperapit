@@ -1,0 +1,149 @@
+%
+%
+% Short LaTeX Template ( laarstyle.sty ) for
+%
+%         Latin American Applied Research
+%               Latex template
+%
+%
+% Usage:
+%
+% \documentstyle[laarstyle]{article}      for LaTeX 2.09 users
+%
+%
+% \documentclass[a4paper,10pt]{article}
+% \usepackage{laarstyle}                  for LaTeX2e users
+%
+%
+% \begin{document}
+%
+% \title{...}
+% \author{...}
+% \affiliation{....}
+%
+% \maketitle
+%
+% \abstract
+% Your abstract here
+% \endabstract
+%
+% \keywords
+% Your keywords here
+% \endkeywords
+
+% \section{...}
+%  \subsection{...}
+%   \subsubsection{...}
+%
+% \section{...}
+% .
+% .
+% .
+% \begin{thebibliography}{99}
+% \bibitem{...}
+% \bibitem{...}
+%    .
+%    .
+%    .
+% \end{thebibliography}
+%
+%
+% \end{document}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Set the margins
+
+%\thispagestyle{empty} 
+\pagestyle{empty}
+\twocolumn \sloppy \flushbottom
+\columnsep 5mm 
+\textheight 245mm 
+\textwidth 170mm 
+%\columnseprule 0pt
+\oddsidemargin -5.4mm 
+\evensidemargin -5.4mm 
+\topmargin .6mm 
+
+%\headheight 0mm 
+\headsep 3mm 
+\parindent 0.14in 
+\footheight 0mm 
+\footskip 0mm 
+%\leftmargini 2.6em \leftmargin\leftmargini
+%\leftmarginv .5em \leftmarginvi .5em
+
+%Sectioning Commands
+
+\def\thesection { \Roman{section}.\kern-0.5em}
+\def\thesubsection {\Alph{subsection}.\kern-0.5em}
+\def\thesubsubsection {\thesubsection\kern0.5em\arabic{subsubsection}.
+\kern-0.5em}
+\def\section{ \@startsection {section}{1}{\z@}{-1.5ex plus
+    -0.5ex minus -.2ex}{1.0ex plus 0.3ex minus .2ex}{\normalsize\bf\centering}}
+\def\subsection{\@startsection{subsection}{2}{\z@}{-1.5ex plus
+    -0.2ex minus -.2ex}{0.8ex plus .2ex}{\normalsize\bf\raggedright}}
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{-1ex plus
+   -0.5ex minus -.2ex}{0.8ex plus .2ex}{\normalsize\it\raggedright}}
+
+
+%  Define the Title style
+
+\newcommand{\affiliation}[1]{\date{ #1}}
+
+\def\maketitle{\par
+ \begingroup
+ \def\thefootnote{\fnsymbol{footnote}}
+ \def\@makefnmark{\hbox
+ to 0pt{$^{\@thefnmark}$\hss}}
+ \twocolumn[\@maketitle]
+ \@thanks
+ \endgroup
+ \setcounter{footnote}{0}
+ \let\maketitle\relax
+ \let\@maketitle\relax
+
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
+
+\def\@maketitle{%
+  \vskip 0mm
+%\vspace*{-1in}\vbox to 2.25in
+{\hsize\textwidth
+ \linewidth\hsize \vfil \centering
+ {\Large \bf \@title \par} 
+ \vskip 10mm
+ {\large \begin{tabular}[t]{c}\@author\end{tabular}\par}
+ \vskip 8mm
+ {\it \begin{tabular}[t]{c}\@date \end{tabular}\par}}
+\vspace*{10mm}
+}
+
+\def\copyrightspace{\footnotetext[0]{\mbox{}\vrule height 97pt width 0pt}}
+
+%  Define the Abstract
+\def\abstract{\bf \mbox{{\boldmath $Abstract$}{\bf--- }}}
+\def\endabstract{\medskip\rm}%  Define the Abstract
+
+%  Define de Keywords
+\def\keywords{ \bf\mbox{{\boldmath $Keywords$}{\bf--- }}}
+\def\endkeywords{\medskip\rm}
+
+% ************ Bibliography **********************
+
+\def\thebibliography#1
+ {
+{\normalsize{\bf{\begin{center} REFERENCES\end{center}}}}
+ \list{}
+ {
+  \labelsep 0pt
+  \labelwidth 0mm
+  \leftmargin
+  \labelwidth
+  \itemindent -5mm
+  \advance
+  \leftmargin 5mm
+  \usecounter{enumi}
+ }
+ }
+
+ \let\endthebibliography=\endlist

@@ -1,11 +1,12 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.5.16)  6 JUN 2010 19:51
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.5.6)  8 JUN 2010 01:57
 entering extended mode
-**D:/GIT/paper2/paperapit/laarsample.tex
-(D:/GIT/paper2/paperapit/laarsample.tex
+ %&-line parsing enabled.
+**laarsample.tex --shell-escape
+(./laarsample.tex
 LaTeX2e <2005/12/01>
-Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, german, ngerman, german-x-2009-06-19, ngerm
-an-x-2009-06-19, french, loaded.
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\latex209.def"
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, spanish, catalan, galician, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/latex209.def
 File: latex209.def 1998/05/13 v0.52 Standard LaTeX file
 
 
@@ -38,7 +39,7 @@ File: latex209.def 1998/05/13 v0.52 Standard LaTeX file
 \@cla=\count79
 \@clb=\count80
 \mscount=\count81
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\tracefnt.sty"
+(/usr/share/texmf-texlive/tex/latex/base/tracefnt.sty
 Package: tracefnt 1997/05/29 v3.0j Standard LaTeX package (font tracing)
 \tracingfonts=\count82
 LaTeX Info: Redefining \selectfont on input line 101.
@@ -55,7 +56,7 @@ LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 295.
 LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 301.
 LaTeX Info: Redefining \em on input line 311.
 
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\latexsym.sty"
+(/usr/share/texmf-texlive/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup10
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
@@ -65,9 +66,9 @@ LaTeX Font Info:    Redeclaring math delimiter \lgroup on input line 375.
 LaTeX Font Info:    Redeclaring math delimiter \rgroup on input line 377.
 LaTeX Font Info:    Redeclaring math delimiter \bracevert on input line 379.
 )
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\article.cls"
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
 Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\size10.clo"
+(/usr/share/texmf-texlive/tex/latex/base/size10.clo
 File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
 )
 \c@part=\count83
@@ -90,33 +91,33 @@ Compatibility mode: definition of \sc ignored.
 LaTeX Info: Redefining \cal on input line 506.
 LaTeX Info: Redefining \mit on input line 507.
 \bibindent=\dimen105
-) (D:\GIT\paper2\paperapit\laarstyle.sty)
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\graphics\graphicx.sty"
+) (./laarstyle.sty)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\graphics\keyval.sty"
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\graphics\graphics.sty"
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
 Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\graphics\trig.sty"
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\00miktex\graphics.cfg"
+(/etc/texmf/tex/latex/config/graphics.cfg
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 90.
 
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\pdftex-def\pdftex.def"
-File: pdftex.def 2009/08/25 v0.04m Graphics/color for pdfTeX
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2007/01/08 v0.04d Graphics/color for pdfTeX
 \Gread@gobject=\count91
 ))
 \Gin@req@height=\dimen106
 \Gin@req@width=\dimen107
 )
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\fancyhdr\fancyhdr.sty"
+(/usr/share/texmf-texlive/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip43
 \f@ncyO@elh=\skip44
 \f@ncyO@erh=\skip45
@@ -126,21 +127,23 @@ File: pdftex.def 2009/08/25 v0.04m Graphics/color for pdfTeX
 \f@ncyO@erf=\skip49
 \f@ncyO@olf=\skip50
 \f@ncyO@orf=\skip51
-) (D:\GIT\paper2\paperapit\laarsample.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+) (./laarsample.aux)
+\openout1 = `laarsample.aux'.
 
-("C:\Program Files (x86)\MiKTeX 2.8\tex\context\base\supp-pdf.tex"
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+
+(/usr/share/texmf/tex/context/base/supp-pdf.tex
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count92
 \scratchdimen=\dimen108
@@ -154,30 +157,30 @@ LaTeX Font Info:    ... okay on input line 37.
 \everyMPtoPDFconversion=\toks16
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 41.
+(Font)              <12> on input line 49.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 41.
+(Font)              <8> on input line 49.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 41.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 41.
- ("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\ulasy.fd"
+(Font)              <6> on input line 49.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 49.
+ (/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 41.
+(Font)              <7> on input line 49.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 41.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 41.
+(Font)              <5> on input line 49.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 49.
 
-("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\omscmr.fd"
+(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 41.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 49.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 43.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 51.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 43.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 51.
 
 
 Package Fancyhdr Warning: \footskip is too small (0.0pt): 
@@ -185,61 +188,93 @@ Package Fancyhdr Warning: \footskip is too small (0.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[1{C:/ProgramData/MiKTeX/2.8/pdftex/config/pdftex.map}
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 
-] [2] <PeerCodeReview.jpg, id=16, 354.57469pt x 320.69812pt>
+] [2]
+<PeerCodeReview.jpg, id=16, 354.57469pt x 320.69812pt>
 File: PeerCodeReview.jpg Graphic file (type jpg)
 
-<use PeerCodeReview.jpg> <RepoCentral.jpg, id=17, 399.74344pt x 362.85562pt>
+<use PeerCodeReview.jpg>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<RepoCentral.jpg, id=17, 399.74344pt x 362.85562pt>
 File: RepoCentral.jpg Graphic file (type jpg)
  <use RepoCentral.jpg>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[3 <D:/GIT/paper2/paperapit/PeerCodeReview.jpg>] <IndependentSubteams.jpg, id=21, 796.47563pt x 552.56438pt>
+[3] <IndependentSubteams.jpg, id=21, 796.47563pt x 552.56438pt>
 File: IndependentSubteams.jpg Graphic file (type jpg)
 
-<use IndependentSubteams.jpg> <ResponsableIntegracion.jpg, id=22, 1041.8925pt x 678.535pt>
+<use IndependentSubteams.jpg>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 2269) has occurred while \output is active []
+
+
+<ResponsableIntegracion.jpg, id=22, 1041.8925pt x 678.535pt>
 File: ResponsableIntegracion.jpg Graphic file (type jpg)
 
-<use ResponsableIntegracion.jpg>
-Underfull \hbox (badness 10000) in paragraph at lines 286--290
-[]
+<use ResponsableIntegracion.jpg> [4 <./PeerCodeReview.jpg> <./RepoCentral.jpg> 
+<./IndependentSubteams.jpg> <./ResponsableIntegracion.jpg>]
+<dvcs_roundup_plot_commits.jpg, id=26, 521.15831pt x 390.86873pt>
+File: dvcs_roundup_plot_commits.jpg Graphic file (type jpg)
+
+<use dvcs_roundup_plot_commits.jpg>
+<dvcs_roundup_plot_sizes.jpg, id=27, 521.15831pt x 390.86873pt>
+File: dvcs_roundup_plot_sizes.jpg Graphic file (type jpg)
+
+<use dvcs_roundup_plot_sizes.jpg>
+<dvcs_roundup_plot_steps1.jpg, id=28, 521.15831pt x 390.86873pt>
+File: dvcs_roundup_plot_steps1.jpg Graphic file (type jpg)
+
+<use dvcs_roundup_plot_steps1.jpg> [5 <./dvcs_roundup_plot_commits.jpg> <./dvcs
+_roundup_plot_sizes.jpg> <./dvcs_roundup_plot_steps1.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 339--344
+\OT1/cmr/m/it/10 http://www.perforce.com/perforce/doc.current/
  []
 
 
-Overfull \hbox (52.42256pt too wide) in paragraph at lines 286--290
-\OT1/cmr/m/it/10 http://www.perforce.com/perforce/doc.current/manuals/p4web
+Underfull \hbox (badness 10000) in paragraph at lines 346--348
+[]\OT1/cmr/m/n/10 Git-SVN Crash Test Course
  []
 
-[4 <D:/GIT/paper2/paperapit/RepoCentral.jpg> <D:/GIT/paper2/paperapit/IndependentSubteams.jpg> <D:/GIT/paper2/paperapit/
-ResponsableIntegracion.jpg>]
-Underfull \hbox (badness 2103) in paragraph at lines 304--307
-\OT1/cmr/m/n/10 for solv-ing re-act-ing dis-til-la-tion prob-lems,'' \OT1/cmr/m/it/10 J.
+
+Underfull \hbox (badness 10000) in paragraph at lines 350--353
+[]\OT1/cmr/m/n/10 DVCS Per-for-mance Com-par-
  []
 
-[5
 
-] (D:\GIT\paper2\paperapit\laarsample.aux) ) 
+Underfull \hbox (badness 10000) in paragraph at lines 355--358
+[]\OT1/cmr/m/n/10 Kernel.org wiki Git In-ter-faces Com-
+ []
+
+[6
+
+] (./laarsample.aux) ) 
 Here is how much of TeX's memory you used:
- 1273 strings out of 495285
- 16316 string characters out of 3179869
- 72136 words of memory out of 3000000
- 4466 multiletter control sequences out of 15000+200000
- 20240 words of font info for 74 fonts, out of 3000000 for 9000
- 14 hyphenation exceptions out of 8191
- 27i,10n,43p,722b,293s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/t
-ype1/public/amsfonts/cm/cmmib10.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Prog
-ram Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/publi
-c/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (
-x86)/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on laarsample.pdf (5 pages, 436992 bytes).
+ 1259 strings out of 95037
+ 15885 string characters out of 1182325
+ 66869 words of memory out of 1500000
+ 4429 multiletter control sequences out of 10000+50000
+ 20240 words of font info for 74 fonts, out of 1200000 for 2000
+ 54 hyphenation exceptions out of 8191
+ 27i,11n,43p,533b,219s stack positions out of 5000i,500n,6000p,200000b,5000s
+</usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmbx10.p
+fb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmbx12.pfb></usr/share/texm
+f-texlive/fonts/type1/bluesky/cm/cmmib10.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/bluesky/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmr12
+.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/te
+xmf-texlive/fonts/type1/bluesky/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/bluesky/cm/cmti10.pfb>
+Output written on laarsample.pdf (6 pages, 497328 bytes).
 PDF statistics:
- 54 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 60 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 131072)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

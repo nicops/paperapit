@@ -1,9 +1,16 @@
 %\input{tcilatex}
-\documentstyle[laarstyle,graphicx,fancyhdr]{article}
+%\documentstyle[laarstyle,graphicx,fancyhdr]{article}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TCIDATA{Created=Mon Jun 26 12:16:44 2000}
 %TCIDATA{LastRevised=Fri Feb 21 17:20:01 2003}
 %TCIDATA{Language=American English}
+\documentclass[a4paper,10pt]{article}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{laarstyle}
+\usepackage{xspace}
+
+\newcommand{\sectionReference}[1]{\hspace{-.25em}\ref{#1}\hspace{.5em}}
 
 \newcommand{\diagrama}[2]{
     \begin{figure}[h]
@@ -75,17 +82,23 @@ GIT, SVN, DVCS, MERCURIAL
 Most software projects use Version Control Systems (VCS) to manage revisions
 of source code. 
 Version Control Systems traditionally track the whole history of the
-source code in a central server that everyone that can access. 
+source code in a central server that everyone can access.
 Users need to access this central server to work with their VCS.
 A modern, different approach of doing revision control is using a \emph{Distributed} Version Control System (DVCS).
-In these systems, there is no central server that contains the history and tracks changes,
-instead everyone has a copy of the full repository with the complete history.
+In these systems, there is no central server containing the history and tracking changes,
+instead of that has a copy of the full repository including the complete history.
 Given the lack of a centralized server they are also called De-centralized Version Control Systems. 
 
-As stated in the abstract, we're going to do an overview of DVCS and comparison, based on the DVCS Git. 
-First we're going to have a quick look to the history of DVCS. Then there is a review of the overall architecture of DVCS, and then a comparison to centralized version control systems. Some workflows enabled by the use of Distributed Version Control Systems are described, and finally a general evaluation of Git, DVCS in general, and whether it is or not a good idea to switch to them. 
+
+In section \sectionReference{DVCS HISTORY} there is a small review of DVCS's history. Later, section \sectionReference{ARCHITECTURE} covers
+all architecture elements in a DVCS. A comparison between a traditional VCS and the most recent DVCS is done on
+section \sectionReference{CENTRALIZED DISTRIBUTED COMPARISON} There is also an enumeration of possible scenarios where using a 
+DVCS might be possible and/or useful which are covered on section \sectionReference{WORKFLOWS} Finally, 
+section \sectionReference{DVCS COMPARISONS} there is an analysis on different implementation of DVCS system.
+
 
 \section{DVCS HISTORY}
+\label{DVCS HISTORY}
 
 The concept of distributed repositories came up first on the commercial product 
 Sun TeamWare. Larry McVoy, who worked on Sun Teamware, later went 
@@ -107,6 +120,7 @@ largely similar, with most commands having the same names in both tools.
 % SECTION II: Architecture
 %----------------------------------------------------------------------
 \section{ARCHITECTURE}
+\label{ARCHITECTURE}
 
 A DVCS has many features that makes it perfect for distributed and non-distributed developments. Almost every feature is based on the fact that DVCS is distributed instead of centralized and therefore if you work distributed then merges would happen on a regular basis and they should be as fast and easy as possible, providing developers with a whole new set of tools that relieve them almost completely from having to code according to the rules required to work with a centralized CVS like system. 
 
@@ -156,6 +170,8 @@ This logic is similar to centralized VCS, but we must keep in mind that we could
 Pull is the opposite action of push and it is the combination of two other commands, ``fetch'' and ``merge''. The fetch command takes the changes from a peer's repository and copies them to the local repository. After that, the merge process combines the changes you've just downloaded with the ones on your local repository. You can do those two actions separately or altogether by using the ``pull'' command.
 
 \section{COMPARISON BETWEEN CENTRALIZED AND DISTRIBUTED}
+\label{CENTRALIZED DISTRIBUTED COMPARISON}
+
 \subsection{Commits}
 In a DVCS the nature of the commits is different to centralized VCS, since commits are made in the local repository only. 
 Commiting in centralized VCS means ``to share the change with everyone that queries the centralized server'' while in a 
@@ -217,6 +233,7 @@ the equivalent of Tortoise-Git.
 %----------------------------------------------------------------------
 
 \section{POSSIBLE WORKFLOWS}
+\label{WORKFLOWS}
 
 As mentioned before, this tool allows for differents workflows that just weren't 
 possible before.
@@ -271,6 +288,8 @@ It is also possible to have an automatic integration manager. This server will a
 % SECTION IV: Then, why should I use it in my project?
 %----------------------------------------------------------------------
 \section{DVCS COMPARISONS}
+\label{DVCS COMPARISONS}
+
 There are several DVCS in the market nowadays and most of them are open, free or have a free license while not being used in comercial environments. While most of them have very similar features, the one that has the greatest number if features is Git with over 150 commands out-of-the-box but at the same time it is the one with the steepest learning curve because it is very different from SVN, which is probably the most widely used VCS. 
 One key aspect of VCS is its performance. It was said previously in this document that the merging process was crucial for a DVCS because it's something that you'll probably have to do several times during a day in a distributed environment and therefore it should be as fast as possible. This is not the case for all DVCS tools. In the following charts\cite{dvcsperfcomparison} we'll compare some of the most widely used DVCS. 
 

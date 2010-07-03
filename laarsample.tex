@@ -313,18 +313,16 @@ There are many other third-party GUIs for Git, but none of them has all availabl
 In those cases, going back to the command line is the only way to do them. One of the most complete GUIs is SmartGit, but 
 it requires to purchase a (rather inexpensive) licence for commercial usage. An alternative for Windows only 
 is Tortoise-Git, which is a fork of Tortoise-SVN that shares the same look-and-feel, while supporting most of the 
-Git operations. There are others GUIs but they are either very incomplete or are not really mature and have 
+Git operations. There is also a Tortoise-Hg to work with Mercurial DVCS.
+There are others GUIs but they are either very incomplete or are not really mature and have 
 some kind of bugs (like git-cola) \cite{interfaces}.
 
 The plugin to integrate Git with Eclipse is still under major development so it only allows the most basic features to be used.
 Unfortunately, as the time this paper is being written, it is not yet mature enough to be used frequently as it usually forgets configurations. For instance, it cannot remember which repository to push, so each time the developer wants to push some changesets a custom repository must be specified again.
 
 There are some tools to interoperate with others VCS, easing transitions.
-Git in particular includes has git-svn which allows to push and pull from svn repositories.
-
-% Intercalar tortoise con tortoise-git y el del svn con el svn
-Mercurial has similar tools, incluing hg-subversion to interact with svn repositories, and Tortoise-Hg which is
-the equivalent of Tortoise-Git.
+Git in particular includes has git-svn which allows to push and pull from svn repositories. This is also available for Mercurial DVCS
+with the hg-subversion project.
 
 %----------------------------------------------------------------------
 % SECTION IV: Then, why should I use it in my project?

@@ -157,15 +157,14 @@ As explained in section \sectionReference{CENTRALIZED DISTRIBUTED COMPARISON}  \
 \subsection{Change-sets}
 You could also create several other clones for every feature or bug that you want to develop and push those changes to another clone, a peer's repository for instance, and pull some changes from another peer to your local clone. To be able to do this, a DVCS tracks change-sets instead of changes in individual files so that it can keep track of all the changes needed for a feature/bug to work.
 
-%Arq
+
 \subsection{Patchs}
 The idea of having several clones, one for each feature or bug might be problematic. Instead, it is possible to have a single clone and then select
 which of the local changes goes into the commit. Different parts of a single file can be selected to join the commit and which ones doesn't. Only those selected parts will conform the commit. The ability to select only parts of all the modifications makes the commits very atomic.
 
-%
+
 \subsection{Flexibility}
-% Buscar reemplazo a super-set
-If you need a centralized repository you could still use a DVCS and all it's features while pushing all the changes to a particular repository. This shows how flexible a DVCS is, to the point of being able to describe it as something that contains all  a super-set of a centralized CVS although in really it is not.
+If you need a centralized repository you could still use a DVCS and all it's features while pushing all the changes to a particular repository. This shows how flexible a DVCS is, to the point of being able to describe it as something that contains all features of a centralized CVS although in really it is not.
 
 %Arq | mejorar redaccion
 \subsection{Trust Based Security}

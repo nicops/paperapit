@@ -94,7 +94,7 @@ are no big differences between most of these DVCS, especially between Git and Me
 largely similar, with most commands having the same names in both tools.
 
 
-In section \sectionReference{DVCS HISTORY} there is a small review of DVCS's history. Later, section
+In section \sectionReference{HISTORY} there is a small review of DVCS's history. Later, section
 \sectionReference{ARCHITECTURE} covers all architecture elements in a DVCS. A comparison between a traditional VCS 
 and the most recent DVCS is done on section \sectionReference{CENTRALIZED DISTRIBUTED COMPARISON} There is also an 
 enumeration of possible scenarios where using a DVCS might be possible and/or useful which are covered on section
@@ -102,8 +102,8 @@ enumeration of possible scenarios where using a DVCS might be possible and/or us
 implementation of DVCS system.
 
 
-\section{DVCS HISTORY}
-\label{DVCS HISTORY}
+\section{HISTORY}
+\label{HISTORY}
 
 The concept of distributed repositories came up first on the commercial product 
 Sun TeamWare. Larry McVoy, who worked on Sun Teamware, later went 
@@ -123,31 +123,65 @@ the idea of tracking only patches and not versions.
 \section{ARCHITECTURE}
 \label{ARCHITECTURE}
 
-A DVCS has many features that makes it perfect for distributed and non-distributed developments. Almost every feature is based on the fact that DVCS is distributed instead of centralized and therefore if you work distributed then merges would happen on a regular basis and they should be as fast and easy as possible, providing developers with a whole new set of tools that relieve them almost completely from having to code according to the rules required to work with a centralized CVS like system. 
 
+% - Distributed / Architecture
+% - push-pull-commit (local commit, distributed repositories)
+% - Flexibility
+% - Changesets & patches
+% - Cherry-picking
+% - Merging
+% - Tagging & branching
+% - Trust Based Security
+
+
+
+% Descripcion de arquitectura 
+A DVCS has many features that make it perfect for distributed and non-distributed developments. 
+
+Almost every feature is based on the fact that a DVCS is distributed instead of centralized. 
+
+Therefore if you work distributed then merges would happen on a regular basis and they should be as fast and easy as possible, providing developers with a whole new set of tools that relieve them almost completely from having to code according to the rules required to work with a centralized CVS like system. 
+%Arq
 \subsection{Distributed}
-The idea behind being distributed means that no server has the full content of a repository but rather a clone of it with the changes that a particular developer has commited. This allows users to have their own clone on their own computer and work in a offline environment while being able to version their changes. It also makes the whole versioning system faster.
+The idea behind a distributed architecture means that no server has the full content of a repository. Instead of that, each 
+particular developer has a clone of the repository with the changes he has commited. 
+This allows users to version their changes in their own repository's clone while working in a offline environment.
 
+As explained in section \sectionReference{CENTRALIZED DISTRIBUTED COMPARISON}  \sectionReference{Commits} all commits are local which makes the whole versioning system faster.
+
+% Local commit
+
+
+% Reveer diferencia entre changes & patch. Ver bien la diferencia o juntarlos.
+%Arq
 \subsection{Change-sets}
-You could also create several other clones for every feature or bug that they want to develop and push those changes to another clone, a peer's repository for instance, and pull some changes from another peer to your local clone. To able to do this, a DVCS tracks change-sets instead of changes in individual files so that it can keep track of all the changes needed for a feature/bug to work. 
+You could also create several other clones for every feature or bug that you want to develop and push those changes to another clone, a peer's repository for instance, and pull some changes from another peer to your local clone. To be able to do this, a DVCS tracks change-sets instead of changes in individual files so that it can keep track of all the changes needed for a feature/bug to work.
 
+%Arq
 \subsection{Patchs}
+% No usar you. Ver si se puede explicar mejor lo de atomic way
 The idea of having several clones, one for each feature or bug might be problematic so instead of doing that, you could have all your changes on a single clone and then select which one of those changes you want to commit. You can even select which parts of a single file you want to commit and which ones you don't, then group those changes and commit them in a very atomic way.
 
+%
 \subsection{Flexibility}
+% Buscar reemplazo a super-set
 If you need a centralized repository you could still use a DVCS and all it's features while pushing all the changes to a particular repository. This shows how flexible a DVCS is, to the point of being able to describe it as a super-set of a centralized CVS although in really it is not.
 
+%Arq | mejorar redaccion
 \subsection{Trust Based Security}
-Security on DVCS is based on the "circle of trust" model which implies that you trust only on a very specific group of people and you only pull from those people which in turn trust in their own group of people and only pull from that other group of people. This creates a chain of trust so that even if you don't trust some one directly by scalating their changes you could end up having his code only after it has been reviewed by the people you really trust.
+Security on DVCS is based on the "circle of trust" model, which implies that you trust only on a very specific group of people and you only pull from their repositories. They, in turn, have their own group of trust and only pull from that other group. This creates a chain of trust so that even if you don't trust someone directly by scalating their changes you could end up having his code only after it has been reviewed by the people you really trust.
 
 \subsection{Small, Coherent and Logical Commits}
-Due to the fact that you can select very specific pieces of your code to build a commit you can make commits very small and atomic making the merging process more easy by selecting only those commits that won't break your code. This technique of only selecting the changes that you want is called ``cherry-picking'' and it has the advantage of using the revision tree as a 
-series of \emph{changesets} or \emph{patches} instead of just a series of static versions. 
+%
+% Dar vuelta la redacción. Tree son changesets => 
+%
+Due to the fact that you can select very specific pieces of your code to build a commit you can make commits very small and atomic, making the merging process easier by selecting only those commits that won't break your code. This technique of only selecting the changes that you want is called ``cherry-picking''. It has the advantage of using the revision tree as a series of \emph{changesets} or \emph{patches} instead of just a series of static versions.
+
 
 The distributed model enhances this by allowing to make commits whenever you want to your local copy without breaking anyone else's code. Many little commits can be grouped as a bigger, conceptual commit in the case that you need those changes to occur at the same time and not individually. 
 
 \subsection{Tagging and Branching}
-Most DVCS allows the user to attach an arbitrary description the a tag so you can store the whole release announcements along with the tag of that version. Moreover, as with the commit, the identity of the user who made the tag is stored and can be securely verified by a cryptographical PGP signature that is embedded on the tag.
+Most DVCSs allows the user to attach an arbitrary description to the tag so you can store the whole release announcement along with the tag of that version. Moreover, as with the commit, the identity of the user who made the tag is stored and can be securely verified by a cryptographical PGP signature that is embedded on the tag.
 
 \subsection{Merging}
 The merging process has two possible scenarios:
@@ -155,37 +189,42 @@ The merging process has two possible scenarios:
 \emph{Fast-forward merge:} The changes has been applied to only one of the branches and therefore those changes are replayed to the other branch automatically.
 
 \emph{Three-way merge:} When changes exists on both branches, the DVCS tool will try to automatically merge them and if any conflict arises then it reports it to you and let you resolve them. 
-The merging process\cite{svnmerging} between branches preserves all the history of 
-both branches on many DVCS tools.
+On many DVCS tools, the merging process\cite{svnmerging} between branches preserves all the history of 
+both branches.
 
 \subsection{Pushing and pulling}
-When we want to share our work with the rest of the team we have two basic commands:
+When a developer wants to share our work with the rest of the team we have two basic commands:
 %\emph{push} and \emph{pull}.
 
 \emph{Push:}
-The push process refers to taking all the changes previously selected and adding them to the repository of another peer. In practice we usually don't do this because we shouldn't push changes to a peer's working copy of the repository so the push process is usually done agains a ``central repository'' where all the team make their pushes too. 
+The push process refers to taking all the changes previously selected and adding them to the repository of another peer. In practice we usually don't do this because we shouldn't push changes to a peer's working copy of the repository so the push process is can be done against a ``central repository'' where all the team make their pushes to.
 
-This logic is similar to centralized VCS, but we must keep in mind that we could have a lot of ``central repositories'' for different parts of our project or even for different parts of the team. Testing could have its own central repository, while development has another copy of it and changes could be pushed among them very easily.
+This logic is similar to centralized VCS, but we must keep in mind that we could have a lot of shared repositories for different parts of our project or even for different parts of the team. Testing could have its own central repository, while development has another copy of it and changes could be pushed among them very easily.
 
 \emph{Pull:} 
-Pull is the opposite action of push and it is the combination of two other commands, ``fetch'' and ``merge''. The fetch command takes the changes from a peer's repository and copies them to the local repository. After that, the merge process combines the changes you've just downloaded with the ones on your local repository. You can do those two actions separately or altogether by using the ``pull'' command.
+Pull is the opposite action of push and it is the combination of two other commands, ``fetch'' and ``merge''. The fetch command takes the changes from a peer's repository and copies them to the local repository. After that, the merge process combines the changes you've just downloaded with the ones on your local repository. You can do those two actions separatedly or altogether by using the ``pull'' command.
 
 \section{COMPARISON BETWEEN CENTRALIZED AND DISTRIBUTED}
 \label{CENTRALIZED DISTRIBUTED COMPARISON}
 
 \subsection{Commits}
+\label{Commits}
 In a DVCS the nature of the commits is different to centralized VCS, since commits are made in the local repository only. 
 Commiting in centralized VCS means ``to share the change with everyone that queries the centralized server'' while in a 
 DVCS means to store a change in the history, which is not shared until it's pushed or pulled into another repository.
 
-Also, DVCS allow to apply a technique called ``cherry-picking'', 
+Also, DVCSs allows the ``cherry-picking'', 
 which consists of ``picking'' what changes you want to use in a version, and build 
 a new version containing only those changes. This way the revision tree is seen as a 
 series of \emph{changesets} or \emph{patches} instead of just a series of static versions.
 
 \subsection{Merging}
 Merging on Git between branches is greatly improved over SVN, because all the history of 
-both branches is preserved over the merges. %agregar citation
+both branches is preserved over the merges. In order to merge in a CVCS it is necessary to bring all changes from the
+branch to the head copy, make everything compile and run, and then commit those changes into the HEAD. This forces
+a single commit into the HEAD which looses the history since there is no way for the tool to know which changes belonged
+to which commits on the branch.
+%agregar citation
 
 \subsection{Sharing changes}
 If you work simply pulling and pushing against a central repository, those operations do look 
@@ -197,20 +236,20 @@ read-only mode (via ssh, http, or simply sharing the directory) to let other peo
 \subsection{Repository Size}
 
 Centralized VCS also have their advantages, you don't need to have the whole history in your 
-personal repository so you can save space, for example in Perforce you can check out only a part of the 
-repository\cite{perforceclientspec} while in Git repositories can't handle millions of file 
-without getting a performance hit on some operations\cite{linusgit}.
+personal repository so you can save space. For example, in Perforce you can check out only a part of the 
+repository\cite{perforceclientspec} where as in Git this is not possible.
+% mencionar operaciones
+Git repositories can't handle millions of files without getting a performance hit on some operations\cite{linusgit}.
 
 \subsection{Tool support}
 %the idea here is to explain a bit the state of the art in the toolchain support
 %eclipse plugins, tortoisegit 'n tortoisehg, etc.
 
-Systems like SVN have mature tool support and various plugins, but popular DVCS are catching up.
-For these tools most complete interface is the command line, but for the usual operations, 
+Systems like SVN have mature tool support and various plugins, but popular DVCSs are catching up.
+For these tools the most complete interface is the command line, but for the usual operations
 there are various visual tools to operate with the repository.
 
-Git, in particular, is based on Linux and originally didn't work work out of the box in Windows, 
-only by using Cygwin. 
+Git, in particular, is based on Linux and originally didn't work out of the box in Windows. \footnote{But was required Cygwin to run}
 There is now a Git fork which ports it to windows. However it still carries a linux heritage which is shown when the installation includes a Bash shell.
 Git also includes a portable GUI written in Tk, invoked with command ``git gui'' 
 but while it is simple and easy to use, it is very incomplete (for example, 
@@ -220,19 +259,21 @@ There are many other third-party GUIs for Git, but none of them has all availabl
 In those cases, going back to the command line is the only way to do them. One of the most complete GUIs is SmartGit, but 
 it requires to purchase a (rather inexpensive) licence for commercial usage. An alternative for Windows only 
 is Tortoise-Git, which is a fork of Tortoise-SVN that shares the same look-and-feel, while supporting most of the 
-Git operations. There are others GUIs but they are either very uncomplete or aren't really mature and have 
+Git operations. There are others GUIs but they are either very incomplete or are not really mature and have 
 some kind of bugs (like git-cola) \cite{interfaces}.
 
 The plugin to integrate Git with Eclipse is still under major development so it only allows the most basic features to be used.
 Unfortunately, as the time this paper is being written, it is not yet mature enough to be used frequently as it usually forgets configurations. For instance, it cannot remember which repository to push, so each time the developer wants to push some changesets a custom repository must be specified again.
 
 There are some tools to interoperate with others VCS, easing transitions.
-Git in particular includes has git-svn which allows to push and pull from svn repositories. 
+Git in particular includes has git-svn which allows to push and pull from svn repositories.
 
+% Intercalar tortoise con tortoise-git y el del svn con el svn
 Mercurial has similar tools, incluing hg-subversion to interact with svn repositories, and Tortoise-Hg which is
 the equivalent of Tortoise-Git.
 %----------------------------------------------------------------------
 
+% Reveer de mover esta sección antes de la comparacion
 \section{POSSIBLE WORKFLOWS}
 \label{WORKFLOWS}
 
@@ -257,7 +298,7 @@ If doing code review is a common practice, then using a DVCS can aid to this pro
 among any workstation, the reviewer can fetch the changes from the reviewee's workstation. The reviewer might be
 working on some other feature and may have it's workspace in an unstable state. But this is not a problem since the
 reviewer can just clone the reviewee's repository and can have it sepparatedly from its current changes.
-This also prevented them from sharing the code through a public repository, which can present some disadvantages like
+This also prevents them from sharing the code through a public repository, which can present some disadvantages like
 a third developer using code that is not yet intended for general use.
 
 After the review, they can push changes to some public repository for everyone to use, or the reviewer can push changes to the reviewee repository for further fixes. All of this is completely isolated from the rest of the team and with no commit history loose.
@@ -265,7 +306,7 @@ After the review, they can push changes to some public repository for everyone t
 \diagrama{PeerCodeReview.jpg}{Peer Code Review workflow}
 
 \subsection{Centralized Server}
-The classic workflow where there is one central server which has the whole project is also available. In this case all developers has access to the server and can pull and push changes from it. The main advantages is that any developer can share changes among other developer without needing to use the central server. However once a piece of code is considered finished it should be pushed to this server.
+The classic workflow where there is one central server which has the whole project is also available. In this case all developers have access to the server and can pull and push changes from it. The main advantages is that any developer can share changes with other developers without being forced to use a central server. However, once a piece of code is considered finished it should be pushed to this server.
 
 \diagrama{RepoCentral.jpg}{Centralized Server workflow}
 
@@ -291,8 +332,9 @@ It is also possible to have an automatic integration manager. This server will a
 \section{DVCS COMPARISONS}
 \label{DVCS COMPARISONS}
 
-There are several DVCS in the market nowadays and most of them are open, free or have a free license while not being used in comercial environments. While most of them have very similar features, the one that has the greatest number if features is Git with over 150 commands out-of-the-box but at the same time it is the one with the steepest learning curve because it is very different from SVN, which is probably the most widely used VCS. 
-One key aspect of VCS is its performance. It was said previously in this document that the merging process was crucial for a DVCS because it's something that you'll probably have to do several times during a day in a distributed environment and therefore it should be as fast as possible. This is not the case for all DVCS tools. In the following charts\cite{dvcsperfcomparison} we'll compare some of the most widely used DVCS. 
+There are several DVCS in the market nowadays and most of them are open, free or have a free license while not being used in comercial environments. While most of them have very similar features, the one that has the greatest number if features is Git with over 150 commands out-of-the-box but at the same time it is the one with the steepest learning curve because it is very different from SVN which is probably the most widely used VCS.
+
+One key aspect of a VCS is its performance. It was said previously in this document that the merging process was crucial for a DVCS because it's something that you'll probably have to do several times during a day in a distributed environment and therefore it should be as fast as possible. This is not the case for all DVCS tools. In the following charts\cite{dvcsperfcomparison} we'll compare some of the most widely used DVCSs.
 
 This benchmark simulates a linearly growing repository, being sequentially filled with 4000 files. Each file is modified five times. At the end of the test, the repository had 24,000 revisions. 
 
@@ -304,13 +346,14 @@ If you verify the size of the resulting repository on the previous simulation yo
 
 \diagrama{dvcs_roundup_plot_sizes.jpg}{Repository Size Growth}
 
-Doing the math you will see that the resulting checkout is about 15MBs. SVK needs almost 1.8 GB to store that repository, while the rest of them needs less that 150MB. You might notice that Git has a "saw tooth" shape. That's because Git regulary optimizes its repository. 
+% Reveer saw tooth a ver si se dice así de posta
+Doing the math you will see that the resulting checkout is about 15MBs. SVK needs almost 1.8 GB to store that repository, while the rest of them needs less that 150MB. You might notice that Git has a "saw tooth" shape. That's because Git regulary optimizes its repository.
 
-The following benchmarks tested how much time it took to add a certain number of files to an empty repository. 
+The following benchmarks test how much time it takes to add a certain number of files to an empty repository.
 
 \diagrama{dvcs_roundup_plot_steps1.jpg}{Dependance on Check-in Size}
 
-Once again, Git is the fastest, taking only 300ms to add 2000 files, while SVK needed almost 23 minutes to add the same amount of files. 
+Once again, Git is the fastest, taking only 300ms to add 2000 files, while SVK needed almost 23 minutes to add the same amount of files.
 
 %----------------------------------------------------------------------
 % SECTION VII: Conclusions
@@ -325,12 +368,12 @@ Does everybody need these features? Speed, offline working,
 and easyness of branching/merging are nice features even if you work simply pulling 
 and pushing changes against a central repository and not every peer out there. 
 
-In some 
-projects and with some tools, though, the advantage of going distributed may not be clear. 
+In some projects and with some tools, though, the advantage of going distributed may not be clear. 
 In many closed source projects there is no need nor desire to have anything
-other than centralized repositories, and while you can use a DVCS with a centralized
-repository, there may not be enough to gain to balance the cost of changing. 
+other than centralized repositories, and while you can use a DVCS with centralized
+workflow, there may not be enough to gain to balance the cost of changing.
 
+% Re-redactar el paréntesis que está confuso
 Distributed versioning \emph{is} more complex, and there is a ``conceptual overhead'' in the usage 
 of it, even if most of the time you can ignore most features and use just what you need 
 (even for one person proyects, Git and Mercurial may be easier to use than SVN).
@@ -344,12 +387,12 @@ If there is no need to use anything but a centralized workflow, as in Continous 
 workflows, there might be little justification to use DVCS because changes are supposed to be 
 integrated quickly in the main repository.
 
-Beside these general warnings, Distributed VCS is simply more powerful and flexible than Centralized CVS.
+Beside these general warnings, Distributed VCS is simply more powerful and flexible than Centralized VCS.
 Everything that can be done with a centralized schema can be done in a distributed fashion, but the inverse
 is not true. 
 
 
-
+% Ver porque no aparecen los números en las citas!
 \begin{thebibliography}{9}
 
 \bibitem{linusgit}

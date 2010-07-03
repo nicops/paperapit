@@ -166,9 +166,10 @@ which of the local changes goes into the commit. Different parts of a single fil
 \subsection{Flexibility}
 If you need a centralized repository you could still use a DVCS and all it's features while pushing all the changes to a particular repository. This shows how flexible a DVCS is, to the point of being able to describe it as something that contains all features of a centralized CVS although in really it is not.
 
-%Arq | mejorar redaccion
 \subsection{Trust Based Security}
-Security on DVCS is based on the "circle of trust" model, which implies that you trust only on a very specific group of people and you only pull from their repositories. They, in turn, have their own group of trust and only pull from that other group. This creates a chain of trust so that even if you don't trust someone directly by scalating their changes you could end up having his code only after it has been reviewed by the people you really trust.
+Security on DVCS is based on the "circle of trust" model. This model proposes that a developer should only pull changes from a specific group of people
+in which she trusts. This people have, at the same time, their own group of trust from which they pull. Following this chain any change could scalate
+to any repository, provided that someone trustworthy has reviewed it.
 
 \subsection{Small, Coherent and Logical Commits}
 A revision tree is composed of a series of \emph{changesets} or \emph{patches} instead of just a series of static versions. A changeset or patch

@@ -130,7 +130,7 @@ This allows users to version their changes in their own repository's clone while
 will, at first, remain on its local clone where no one else can see them. This makes the whole versioning system faster and is explained in section \sectionReference{CENTRALIZED DISTRIBUTED COMPARISON}  \sectionReference{Commits} 
 
 Then the developers can share their changes by pushing them into someone else's repository or by pulling changes from them.
-Therefore, if you work distributed, merges would happen on a regular basis and they should be as fast and easy as possible, providing developers with a whole new set of tools that relieve them almost completely from having to code according to the rules required to work with a centralized CVS like system. 
+Therefore, if the work environment is distributed, merges would happen on a regular basis and they should be as fast and easy as possible, providing developers with a whole new set of tools that relieve them almost completely from having to code according to the rules required to work with a centralized CVS like system. 
 
 \subsection{Pushing and pulling}
 When a developer wants to share our work with the rest of the team we have two basic commands:
@@ -142,7 +142,7 @@ The push process refers to taking all the changes previously selected and adding
 This logic is similar to centralized VCS, but we must keep in mind that we could have a lot of shared repositories for different parts of our project or even for different parts of the team. Testing could have its own central repository, while development has another copy of it and changes could be pushed among them very easily.
 
 \emph{Pull:} 
-Pull is the opposite action of push and it is the combination of two other commands, ``fetch'' and ``merge''. The fetch command takes the changes from a peer's repository and copies them to the local repository. After that, the merge process combines the changes you've just downloaded with the ones on your local repository. You can do those two actions separatedly or altogether by using the ``pull'' command.
+Pull is the opposite action of push and it is the combination of two other commands, ``fetch'' and ``merge''. The fetch command takes the changes from a peer's repository and copies them to the local repository. After that, the merge process combines the changes that have been just pulled with the ones on the local repository. Those two actions can be executed separatedly or altogether by using the ``pull'' command.
 
 
 \subsection{Flexibility}
